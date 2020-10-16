@@ -1,17 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <DayPicker @change-day="updateDay" :_day="day"/>
+    <TeamBuilder />
+    <ActivitySuggester :_day="day"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ActivitySuggester from './components/ActivitySuggester.vue';
+import DayPicker from './components/DayPicker.vue';
+import TeamBuilder from './components/TeamBuilder.vue';
+import { dayOfWeekInfo } from '@/assets/data/utils/utils.js';
+
+const date = new Date();
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ActivitySuggester,
+    DayPicker,
+    TeamBuilder,
+  },
+  data: function() {
+    return {
+      day: dayOfWeekInfo[date.getDay()].symbol
+    }
+  },
+  methods: {
+    updateDay: function(newDay) {
+      this.day = newDay;
+    }
   }
 }
 </script>
