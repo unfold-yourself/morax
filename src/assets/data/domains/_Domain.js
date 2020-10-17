@@ -20,10 +20,19 @@ class Domain {
         [DAY.SUNDAY]: [],
       },
       cost: this.cost = 20,
+      type: this.type = null,
+      basePriority: this.basePriority = 0, // scripts/ActivitySuggester/index.js for documentation of priority values
     } = args);
   }
 }
 
+const DOMAINTYPE = Object.freeze({
+  BLESSING: Symbol('blessing'),
+  FORGERY: Symbol('forgery'),
+  MASTERY: Symbol('mastery'),
+});
+
 export {
-  Domain
+  Domain,
+  DOMAINTYPE,
 };

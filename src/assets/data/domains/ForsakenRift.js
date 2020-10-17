@@ -1,18 +1,20 @@
-import { Domain } from '@/assets/data/domains/_Domain.js';
+import { Domain, DOMAINTYPE } from '@/assets/data/domains/_Domain.js';
 import { DAY } from '@/assets/data/utils/days.js';
-import { GUIDEBOOK } from '@/assets/data/materials/guidebook.js';
+import { MASTERY } from '@/assets/data/materials/mastery.js';
 
 const forsakenRift = new Domain({
-  name: 'Hidden Palace of Lianshan Formula',
+  name: 'Forsaken Rift',
   rewards: {
-    [DAY.MONDAY]: [GUIDEBOOK.FREEDOM],
-    [DAY.TUESDAY]: [GUIDEBOOK.RESISTANCE],
-    [DAY.WEDNESDAY]: [GUIDEBOOK.BALLAD],
-    [DAY.THURSDAY]: [GUIDEBOOK.FREEDOM],
-    [DAY.FRIDAY]: [GUIDEBOOK.RESISTANCE],
-    [DAY.SATURDAY]: [GUIDEBOOK.BALLAD],
-    [DAY.SUNDAY]: [GUIDEBOOK.FREEDOM, GUIDEBOOK.RESISTANCE, GUIDEBOOK.BALLAD],
-  }
+    [DAY.MONDAY]: [MASTERY.FREEDOM],
+    [DAY.TUESDAY]: [MASTERY.RESISTANCE],
+    [DAY.WEDNESDAY]: [MASTERY.BALLAD],
+    [DAY.THURSDAY]: [MASTERY.FREEDOM],
+    [DAY.FRIDAY]: [MASTERY.RESISTANCE],
+    [DAY.SATURDAY]: [MASTERY.BALLAD],
+    [DAY.SUNDAY]: [MASTERY.FREEDOM, MASTERY.RESISTANCE, MASTERY.BALLAD],
+  },
+  type: DOMAINTYPE.MASTERY,
+  basePriority: 30,
 });
 
 export {
