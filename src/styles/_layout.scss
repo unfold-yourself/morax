@@ -1,0 +1,54 @@
+@mixin bplte($bp) {
+  $sizes: (
+    'xs': 425,
+    'sm': 768,
+    'md': 1024,
+    'lg': 1440
+  );
+
+  @media (max-width: #{map-get($sizes, $bp)}px) {
+    @content;
+  }
+}
+
+@mixin bpgte($bp) {
+  $sizes: (
+    'xs': 0,
+    'sm': 426,
+    'md': 769,
+    'lg': 1025,
+    'xl': 1441
+  );
+
+  @media (min-width: #{map-get($sizes, $bp)}px) {
+    @content;
+  }
+}
+
+@mixin l-container {
+  width: calc(100% - 32px);
+  padding: 0 16px;
+
+  @include bpgte(md) {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  @include bpgte(lg) {
+    max-width: 1024px;
+  }
+
+  @include bpgte(xl) {
+    max-width: 1440px;
+  }
+}
+
+@mixin l-card {
+  max-width: 850px;
+  margin: auto;
+  border-radius: 8px;
+  border: 2px solid black;
+  margin: 8px auto;
+  overflow: hidden;
+  padding: 16px;
+}
