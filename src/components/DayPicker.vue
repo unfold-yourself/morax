@@ -1,18 +1,20 @@
 <template>
-  <div class="DayPicker">
-    <span class="label">Today is</span>
-    <select v-model="selectedDay">
-      <option v-for="option in dayOptions"
-              :value="option.index"
-              :key="option.index">
-        {{ option.name }}
-      </option>
-    </select>
+  <div class="dayPicker">
+    <div class="content">
+      <span class="label">Today is</span>
+      <select v-model="selectedDay">
+        <option v-for="option in dayOptions"
+                :value="option.index"
+                :key="option.index">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
 <script>
-import { dayOfWeekInfo } from '@/assets/data/utils/utils.js';
+import { dayOfWeekInfo } from '@/assets/data/utils/days.js';
 
 export default {
   name: 'DayPicker',
@@ -37,5 +39,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dayPicker {
+  @include l-container;
+}
 
+.content {
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.label {
+  &::after {
+    content: ' ';
+  }
+}
 </style>

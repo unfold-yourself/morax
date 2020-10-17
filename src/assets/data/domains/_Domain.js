@@ -1,4 +1,4 @@
-import { DAY } from '@/assets/data/utils/utils.js';
+import { DAY } from '@/assets/data/utils/days.js';
 
 class Domain {
   static generateId() {
@@ -18,7 +18,8 @@ class Domain {
         [DAY.FRIDAY]: [],
         [DAY.SATURDAY]: [],
         [DAY.SUNDAY]: [],
-      }
+      },
+      cost: this.cost = 20,
     } = args);
   }
 }

@@ -1,5 +1,5 @@
 import { Domain } from '@/assets/data/domains/_Domain.js';
-import { DAY } from '@/assets/data/utils/utils.js';
+import { DAY } from '@/assets/data/utils/days.js';
 import { GUIDEBOOK } from '@/assets/data/materials/guidebook.js';
 
 const taishanMansion = new Domain({

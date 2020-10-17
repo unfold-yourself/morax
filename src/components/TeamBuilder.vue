@@ -1,6 +1,8 @@
 <template>
-  <div class="TeamBuilder">
-    Teambuilder here
+  <div class="teamBuilder">
+    <div class="content">
+      Teambuilder here
+    </div>
   </div>
 </template>
 
@@ -11,5 +13,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.teamBuilder {
+  @include l-container;
+}
 
+.content {
+  padding: 16px 0;
+}
 </style>

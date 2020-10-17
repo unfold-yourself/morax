@@ -1,9 +1,9 @@
 import { Domain } from '@/assets/data/domains/_Domain.js';
-import { DAY } from '@/assets/data/utils/utils.js';
+import { DAY } from '@/assets/data/utils/days.js';
 import { GUIDEBOOK } from '@/assets/data/materials/guidebook.js';
 
 const forsakenRift = new Domain({
-  name: 'Forsaken Rift',
+  name: 'Hidden Palace of Lianshan Formula',
   rewards: {
     [DAY.MONDAY]: [GUIDEBOOK.FREEDOM],
     [DAY.TUESDAY]: [GUIDEBOOK.RESISTANCE],

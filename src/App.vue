@@ -10,7 +10,7 @@
 import ActivitySuggester from './components/ActivitySuggester.vue';
 import DayPicker from './components/DayPicker.vue';
 import TeamBuilder from './components/TeamBuilder.vue';
-import { dayOfWeekInfo } from '@/assets/data/utils/utils.js';
+import { dayOfWeekInfo } from '@/assets/data/utils/days.js';
 
 const date = new Date();
 
@@ -34,12 +34,13 @@ export default {
 }
 </script>
 
-<style>
+<style src="reset-css"></style>
+
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
