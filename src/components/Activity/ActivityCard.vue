@@ -1,33 +1,42 @@
 <template>
   <div class="activity">
-    <ActivityCost :cost="cost" />
     <div class="info">
       <h2 class="title">
         {{ name }}
       </h2>
-      <ActivityRewards :rewards="allRewards" :today="day"/>
+      <div class="content">
+        <ActivityRewards :rewards="todayRewards" />
+        <ActivityCost :cost="cost" />
+      </div>
     </div>
-    <ActivityUsedFor />
+    <ActivityPurposeList v-if="usedForList.length > 0"
+                        :usedFor="usedForList" />
+    <ActivityPurposeIcons v-if="usedForIcons.length > 0" 
+                          :usedFor="usedForIcons" />
   </div>
 </template>
 
 <script>
 import ActivityRewards from './ActivityRewards';
-import ActivityUsedFor from './ActivityUsedFor';
+import ActivityPurposeIcons from './ActivityPurposeIcons';
+import ActivityPurposeList from './ActivityPurposeList';
 import ActivityCost from './ActivityCost';
 
 export default {
   name: 'ActivityCard',
   components: {
     ActivityRewards,
-    ActivityUsedFor,
+    ActivityPurposeIcons,
+    ActivityPurposeList,
     ActivityCost,
   },
   props: {
     'name': String,
     'cost': Number,
     'day': Symbol,
-    'allRewards': Array,
+    'todayRewards': Array,
+    'usedForIcons': Array,
+    'usedForList': Array,
   },
 }
 </script>
@@ -38,13 +47,13 @@ export default {
   @include l-card;
   display: flex;
   position: relative;
+  justify-content: space-between;
 }
 
 .info
 {
   flex-grow: 1;
-  margin-right: 60px;
-  z-index: 10;
+  max-width: 50%;
 }
 
 .title
@@ -52,5 +61,11 @@ export default {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 8px;
+}
+
+.content
+{
+  display: flex;
+  justify-content: space-between;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="activityRewards">
     <ul class="rewardsList">
       <li v-for="reward in rewards"
-          :class="['reward', reward.isToday ? 'is-today' : '']"
+          class="reward"
           :key="reward.displayName">
         <img class="rewardIcon"
              :src="require('@/assets/' + reward.imageSrc)"
@@ -20,7 +20,6 @@ export default {
   name: "ActivityRewards",
   props: {
     'rewards': Array,
-    'today': Symbol,
   },
 }
 </script>
@@ -29,17 +28,11 @@ export default {
 .reward {
   display: flex;
   align-items: center;
-  display: none;
-
-  &.is-today
-  {
-    display: flex;
-  }
 }
 
 .rewardIcon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin-right: 8px;
 }
 </style>

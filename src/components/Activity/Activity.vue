@@ -1,10 +1,16 @@
 <template>
-  <ActivityCard v-bind="$props" :allRewards="allRewards" />
+  <ActivityCard v-bind="$props"
+                :todayRewards="todayRewards"
+                :usedForIcons="linkedCharacters"
+                :usedForList="linkedWeapons" />
 </template>
 
 <script>
 import ActivityCard from './ActivityCard';
-import { guidebookInfo } from '@/assets/data/materials/guidebook.js';
+import { masteryInfo } from '@/assets/data/materials/mastery.js';
+import { forgeryInfo } from '@/assets/data/materials/forgery.js';
+import { characters } from '@/assets/data/characters';
+import { weapons } from '@/assets/data/weapons';
 
 export default {
   name: 'Activity',
@@ -18,28 +24,32 @@ export default {
     "day": Symbol,
   },
   computed: {
-    allRewards: function() {
-      return Reflect.ownKeys(this.rewards).reduce((allRewards, day) => {
-        const dayRewards = this.rewards[day];
-        dayRewards && dayRewards.forEach(reward => {
-          // if already in allRewards, update `isToday` if it matches today
-          const thisRewardIdx = allRewards.findIndex(el => el.symbol === reward);
-          if (thisRewardIdx >= 0) {
-            if (!allRewards[thisRewardIdx].isToday) {
-              allRewards[thisRewardIdx].isToday = day === this.day;
-            }
-          // Otherwise, add this reward to `allRewards`
-          } else {
-            allRewards.push({
-              symbol: reward,
-              isToday: false,
-              ...guidebookInfo[reward],
-            });
-          }
-        });
-        return allRewards;
-      }, []);
-    }
+    // Returns a list of rewards for this `Activity` on this `day of the week`
+    dayRewards : function() {
+      return this.rewards[this.day] || [];
+    },
+    // Returns a more detailed list of rewards including metadata
+    todayRewards: function() {
+      return this.dayRewards.map(reward => ({
+        symbol: reward,
+        ...masteryInfo[reward],
+        ...forgeryInfo[reward],
+      }));
+    },
+    // Returns a list of all characters that can use any reward in `dayRewards`
+    linkedCharacters: function() {
+      return characters.filter(character => {
+        return character.talentMaterials
+          .some(material => this.dayRewards.indexOf(material) >= 0);
+      });
+    },
+    // Returns a list of all weapons that can use any reward in `dayRewards`
+    linkedWeapons: function() {
+      return weapons.filter(weapon => {
+        return weapon.ascensionMaterials
+          .some(material => this.dayRewards.indexOf(material) >= 0);
+      });
+    },
   },
 }
 </script>

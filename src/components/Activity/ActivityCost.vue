@@ -15,21 +15,13 @@ export default {
 
 <style lang="scss" scoped>
 .activityCost {
-  position: absolute;
-  top: 8px;
-  right: 8px;
   display: flex;
   align-items: center;
-  z-index: 10;
-  background-color: #000b;
-  border-radius: 999px;
-  padding: 8px 12px;
-  color: #fff;
 
   &::before
   {
     content: '';
-    background-image: url('../../assets/images/materials/guidebook_prosperity.png');
+    background-image: url('../../assets/images/materials/mastery/guide_to_prosperity.png'); // TODO: replace with resin png
     background-size: contain;
     background-position: center center;
     height: 16px;
