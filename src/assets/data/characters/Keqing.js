@@ -1,12 +1,13 @@
 import { Character } from '@/assets/data/characters/_Character.js';
-import { GUIDEBOOK } from '@/assets/data/materials/guidebook.js';
+import { MASTERY } from '@/assets/data/materials/mastery.js';
 
 const keqing = new Character({
-  name: 'KeQing',
-  stars: 5,
+  displayName: 'Keqing',
+  rarity: 5,
   talentMaterials: [
-    GUIDEBOOK.PROSPERITY
-  ]
+    MASTERY.PROSPERITY
+  ],
+  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Keqing.png',
 });
 
 export {

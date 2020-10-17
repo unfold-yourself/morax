@@ -1,12 +1,13 @@
 import { Character } from '@/assets/data/characters/_Character.js';
-import { GUIDEBOOK } from '@/assets/data/materials/guidebook.js';
+import { MASTERY } from '@/assets/data/materials/mastery.js';
 
 const fischl = new Character({
-  name: 'Fischl',
-  stars: 4,
+  displayName: 'Fischl',
+  rarity: 4,
   talentMaterials: [
-    GUIDEBOOK.BALLAD
-  ]
+    MASTERY.BALLAD
+  ],
+  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Fischl.png',
 });
 
 export {

@@ -8,9 +8,10 @@ class Character {
   constructor(args={}) {
     this.id = this.constructor.generateId();
     ({
-      name: this.name = '',
-      stars: this.stars = 0,
+      displayName: this.displayName = '',
+      rarity: this.rarity = 0,
       talentMaterials: this.talentMaterials = [],
+      iconImageSrc: this.iconImageSrc = '',
     } = args);
   }
 }
