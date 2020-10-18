@@ -7,7 +7,7 @@ const venti = new Character({
   talentMaterials: [
     MASTERY.BALLAD
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Venti.png',
+  iconImageSrc: 'images/characters/venti.png',
 });
 
 export {

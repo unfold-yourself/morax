@@ -7,7 +7,7 @@ const noelle = new Character({
   talentMaterials: [
     MASTERY.RESISTANCE
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Noelle.png',
+  iconImageSrc: 'images/characters/noelle.png',
 });
 
 export {

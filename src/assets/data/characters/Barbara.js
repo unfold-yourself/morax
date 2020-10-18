@@ -7,7 +7,7 @@ const barbara = new Character({
   talentMaterials: [
     MASTERY.FREEDOM
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Barbara.png',
+  iconImageSrc: 'images/characters/barbara.png',
 });
 
 export {

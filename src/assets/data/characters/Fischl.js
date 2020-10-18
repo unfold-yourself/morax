@@ -7,7 +7,7 @@ const fischl = new Character({
   talentMaterials: [
     MASTERY.BALLAD
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Fischl.png',
+  iconImageSrc: 'images/characters/fischl.png',
 });
 
 export {

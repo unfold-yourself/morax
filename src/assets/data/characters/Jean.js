@@ -7,7 +7,7 @@ const jean = new Character({
   talentMaterials: [
     MASTERY.RESISTANCE
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Jean.png',
+  iconImageSrc: 'images/characters/jean.png',
 });
 
 export {

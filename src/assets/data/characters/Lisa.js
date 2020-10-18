@@ -7,7 +7,7 @@ const lisa = new Character({
   talentMaterials: [
     MASTERY.BALLAD
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Lisa.png',
+  iconImageSrc: 'images/characters/lisa.png',
 });
 
 export {

@@ -7,7 +7,7 @@ const amber = new Character({
   talentMaterials: [
     MASTERY.FREEDOM
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Amber.png',
+  iconImageSrc: 'images/characters/amber.png',
 });
 
 export {

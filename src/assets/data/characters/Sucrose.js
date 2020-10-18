@@ -7,7 +7,7 @@ const sucrose = new Character({
   talentMaterials: [
     MASTERY.FREEDOM
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Sucrose.png',
+  iconImageSrc: 'images/characters/sucrose.png',
 });
 
 export {

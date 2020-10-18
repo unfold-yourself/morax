@@ -7,7 +7,7 @@ const ningguang = new Character({
   talentMaterials: [
     MASTERY.PROSPERITY
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Ningguang.png',
+  iconImageSrc: 'images/characters/ningguang.png',
 });
 
 export {

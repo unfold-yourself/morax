@@ -7,7 +7,7 @@ const kaeya = new Character({
   talentMaterials: [
     MASTERY.BALLAD
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Kaeya.png',
+  iconImageSrc: 'images/characters/kaeya.png',
 });
 
 export {

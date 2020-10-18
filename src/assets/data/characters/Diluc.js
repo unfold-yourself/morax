@@ -7,7 +7,7 @@ const diluc = new Character({
   talentMaterials: [
     MASTERY.RESISTANCE
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Diluc.png',
+  iconImageSrc: 'images/characters/diluc.png',
 });
 
 export {

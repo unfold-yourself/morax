@@ -7,7 +7,7 @@ const chongyun = new Character({
   talentMaterials: [
     MASTERY.DILIGENCE
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Chongyun.png',
+  iconImageSrc: 'images/characters/chongyun.png',
 });
 
 export {

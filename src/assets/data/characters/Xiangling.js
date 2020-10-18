@@ -7,7 +7,7 @@ const xiangling = new Character({
   talentMaterials: [
     MASTERY.DILIGENCE
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Xiangling.png',
+  iconImageSrc: 'images/characters/xiangling.png',
 });
 
 export {

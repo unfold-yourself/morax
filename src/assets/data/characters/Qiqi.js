@@ -7,7 +7,7 @@ const qiqi = new Character({
   talentMaterials: [
     MASTERY.PROSPERITY
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Qiqi.png',
+  iconImageSrc: 'images/characters/qiqi.png',
 });
 
 export {

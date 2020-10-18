@@ -7,7 +7,7 @@ const razor = new Character({
   talentMaterials: [
     MASTERY.RESISTANCE
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Razor.png',
+  iconImageSrc: 'images/characters/razor.png',
 });
 
 export {

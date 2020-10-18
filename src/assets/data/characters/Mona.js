@@ -7,7 +7,7 @@ const mona = new Character({
   talentMaterials: [
     MASTERY.RESISTANCE
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Mona.png',
+  iconImageSrc: 'images/characters/mona.png',
 });
 
 export {

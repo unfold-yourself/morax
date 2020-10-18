@@ -7,7 +7,7 @@ const keqing = new Character({
   talentMaterials: [
     MASTERY.PROSPERITY
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Keqing.png',
+  iconImageSrc: 'images/characters/keqing.png',
 });
 
 export {

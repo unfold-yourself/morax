@@ -7,7 +7,7 @@ const bennett = new Character({
   talentMaterials: [
     MASTERY.RESISTANCE
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Bennett.png',
+  iconImageSrc: 'images/characters/bennett.png',
 });
 
 export {

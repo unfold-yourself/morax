@@ -7,7 +7,7 @@ const xingqiu = new Character({
   talentMaterials: [
     MASTERY.GOLD
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Xingqiu.png',
+  iconImageSrc: 'images/characters/xingqiu.png',
 });
 
 export {

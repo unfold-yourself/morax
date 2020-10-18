@@ -5,7 +5,7 @@
           :key="item.id"
           class="listItem">
         <img class="image"
-            :src="item.iconImageSrc"
+            :src="require('@/assets/' + item.iconImageSrc)"
             :alt="item.name" />
       </li>
     </ul>

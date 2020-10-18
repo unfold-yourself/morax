@@ -7,7 +7,7 @@ const beidou = new Character({
   talentMaterials: [
     MASTERY.GOLD
   ],
-  iconImageSrc: 'https://rerollcdn.com/GENSHIN/Characters/Beidou.png',
+  iconImageSrc: 'images/characters/beidou.png',
 });
 
 export {
