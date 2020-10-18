@@ -18,7 +18,7 @@
       </div>
     </div>
     <div v-if="hasCollapsibleContent" class="toggle">
-      <button class="toggleBtn" v-on:click="toggleAccordion($event)">
+      <button class="toggleBtn" v-on:click="toggleAccordion">
         {{ buttonText }}
       </button>
     </div>

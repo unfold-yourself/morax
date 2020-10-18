@@ -11,7 +11,7 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import ActivitySuggester from './components/ActivitySuggester.vue';
+import ActivitySuggester from './components/ActivitySuggester/ActivitySuggester.vue';
 import DayPicker from './components/DayPicker.vue';
 import TeamBuilder from './components/TeamBuilder.vue';
 import { dayOfWeekInfo } from '@/assets/data/utils/days.js';
