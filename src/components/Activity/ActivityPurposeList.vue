@@ -1,16 +1,18 @@
 <template>
-  <ul class="activityPurpose">
-    <li v-for="item in usedFor"
-        :key="item.id"
-        class="listItem">
-      <img class="image"
-           :src="require('@/assets/' + item.iconImageSrc)"
-           :alt="item.displayName" />
-      <span class="label">
-        {{ item.displayName }}
-      </span>
-    </li>
-  </ul>
+  <div class="activityPurpose">
+    <ul class="list">
+      <li v-for="item in usedFor"
+          :key="item.id"
+          class="listItem">
+        <img class="image"
+            :src="require('@/assets/' + item.iconImageSrc)"
+            :alt="item.displayName" />
+        <span class="label">
+          {{ item.displayName }}
+        </span>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -24,14 +26,22 @@ export default {
 
 <style lang="scss" scoped>
 .activityPurpose {
-  margin: -8px 0;
+  padding-top: 16px;
+  border-top: 1px solid #222;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .listItem {
-  margin: 8px 0;
-  padding: 4px;
+  margin: 2px;
+  padding: 2px;
   border-radius: 999px;
-  width: 200px;
+  width: calc(50% - 4px);
   border: 1px solid #222;
   display: flex;
   align-items: center;
@@ -51,5 +61,6 @@ export default {
   color: #fff;
   flex-grow: 1;
   text-align: center;
+  font-size: 12px;
 }
 </style>

@@ -15,13 +15,19 @@ export default {
 
 <style lang="scss" scoped>
 .activityCost {
+  position: absolute;
+  top: 18px;
+  right: 8px;
   display: flex;
   align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background-color: #0006;
 
   &::before
   {
     content: '';
-    background-image: url('../../assets/images/materials/mastery/guide_to_prosperity.png'); // TODO: replace with resin png
+    background-image: url('../../assets/images/resin.png');
     background-size: contain;
     background-position: center center;
     height: 16px;

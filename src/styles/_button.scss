@@ -1,0 +1,6 @@
+@mixin button-focus-state {
+  &:focus {
+    outline: 2px solid #4d90fe;
+    outline-offset: 2px;
+  }
+}

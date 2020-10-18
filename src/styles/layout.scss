@@ -26,7 +26,7 @@
 }
 
 @mixin l-container {
-  width: calc(100% - 32px);
+  width: 100%;
   padding: 0 16px;
 
   @include bpgte(md) {
@@ -44,11 +44,8 @@
 }
 
 @mixin l-card {
-  max-width: 720px;
-  margin: auto;
   border-radius: 8px;
-  border: 2px solid black;
-  margin: 8px auto;
+  border: 1px solid black;
   overflow: hidden;
-  padding: 16px;
+  padding: 8px;
 }

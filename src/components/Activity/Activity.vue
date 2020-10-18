@@ -1,12 +1,13 @@
 <template>
-  <ActivityCard v-bind="$props"
+  <ActivityCard v-if="true"
+                v-bind="$props"
                 :todayRewards="todayRewards"
                 :usedForIcons="linkedCharacters"
                 :usedForList="linkedWeapons" />
 </template>
 
 <script>
-import ActivityCard from './ActivityCard';
+import ActivityCard from './ActivityCard.vue';
 import { masteryInfo } from '@/assets/data/materials/mastery.js';
 import { forgeryInfo } from '@/assets/data/materials/forgery.js';
 import { characters } from '@/assets/data/characters';
@@ -21,7 +22,8 @@ export default {
     'name': String,
     'rewards': Object,
     'cost': Number,
-    "day": Symbol,
+    'day': Symbol,
+    'type': Symbol,
   },
   computed: {
     // Returns a list of rewards for this `Activity` on this `day of the week`
