@@ -19,7 +19,7 @@ export default {
     ActivityCard,
   },
   props: {
-    'name': String,
+    'displayName': String,
     'rewards': Object,
     'cost': Number,
     'day': Symbol,

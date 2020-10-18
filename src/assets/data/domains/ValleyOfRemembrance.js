@@ -1,8 +1,8 @@
-import { Domain, DOMAINTYPE } from '@/assets/data/domains/_Domain.js';
+import { Domain, DOMAINTYPE } from '@/assets/data/types/Domain.js';
 import { DAY } from '@/assets/data/utils/days.js';
 
 const valleyOfRemembrance = new Domain({
-  name: 'Valley of Remembrance',
+  displayName: 'Valley of Remembrance',
   rewards: {
     [DAY.MONDAY]: [],
     [DAY.TUESDAY]: [],

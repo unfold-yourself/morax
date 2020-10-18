@@ -1,15 +1,10 @@
 import { DAY } from '@/assets/data/utils/days.js';
+import { GameEntity } from '@/assets/data/types/GameEntity.js';
 
-class Domain {
-  static generateId() {
-    this.staticId = this.staticId+1 || 0;
-    return this.staticId;
-  }
-
+class Domain extends GameEntity {
   constructor(args={}) {
-    this.id = this.constructor.generateId();
+    super(args);
     ({
-      name: this.name = '',
       rewards: this.rewards = {
         [DAY.MONDAY]: [],
         [DAY.TUESDAY]: [],

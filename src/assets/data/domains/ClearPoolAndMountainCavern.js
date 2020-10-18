@@ -1,8 +1,8 @@
-import { Domain, DOMAINTYPE } from '@/assets/data/domains/_Domain.js';
+import { Domain, DOMAINTYPE } from '@/assets/data/types/Domain.js';
 import { DAY } from '@/assets/data/utils/days.js';
 
 const clearPoolAndMountainCavern = new Domain({
-  name: 'Clear Pool and Mountain Cavern',
+  displayName: 'Clear Pool and Mountain Cavern',
   rewards: {
     [DAY.MONDAY]: [],
     [DAY.TUESDAY]: [],

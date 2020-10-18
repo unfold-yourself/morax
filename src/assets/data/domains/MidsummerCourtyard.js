@@ -1,8 +1,8 @@
-import { Domain, DOMAINTYPE } from '@/assets/data/domains/_Domain.js';
+import { Domain, DOMAINTYPE } from '@/assets/data/types/Domain.js';
 import { DAY } from '@/assets/data/utils/days.js';
 
 const midsummerCourtyard = new Domain({
-  name: 'Midsummer Courtyard',
+  displayName: 'Midsummer Courtyard',
   rewards: {
     [DAY.MONDAY]: [],
     [DAY.TUESDAY]: [],

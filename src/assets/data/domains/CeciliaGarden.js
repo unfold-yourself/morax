@@ -1,9 +1,9 @@
-import { Domain, DOMAINTYPE } from '@/assets/data/domains/_Domain.js';
+import { Domain, DOMAINTYPE } from '@/assets/data/types/Domain.js';
 import { DAY } from '@/assets/data/utils/days.js';
 import { FORGERY } from '@/assets/data/materials/forgery.js';
 
 const ceciliaGarden = new Domain({
-  name: 'Cecilia Garden',
+  displayName: 'Cecilia Garden',
   rewards: {
     [DAY.MONDAY]: [FORGERY.DECARABIAN],
     [DAY.TUESDAY]: [FORGERY.WOLF],

@@ -1,9 +1,9 @@
-import { Domain, DOMAINTYPE } from '@/assets/data/domains/_Domain.js';
+import { Domain, DOMAINTYPE } from '@/assets/data/types/Domain.js';
 import { DAY } from '@/assets/data/utils/days.js';
 import { FORGERY } from '@/assets/data/materials/forgery.js';
 
 const hiddenPalaceOfLianshanFormula = new Domain({
-  name: 'Hidden Palace of Lianshan Formula',
+  displayName: 'Hidden Palace of Lianshan Formula',
   rewards: {
     [DAY.MONDAY]: [FORGERY.GUYUN],
     [DAY.TUESDAY]: [FORGERY.ELIXIR],

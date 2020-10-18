@@ -35,7 +35,7 @@
 import Activity from './Activity/Activity';
 import { dayOfWeekInfo } from '@/assets/data/utils/days.js';
 import { domains } from '@/assets/data/domains';
-import { DOMAINTYPE } from '@/assets/data/domains/_Domain.js';
+import { DOMAINTYPE } from '@/assets/data/types/Domain.js';
 import { weapons } from '@/assets/data/weapons';
 import { characters } from '@/assets/data/characters';
 import { instance as ActivitySuggesterInstance } from '@/scripts/ActivitySuggester';

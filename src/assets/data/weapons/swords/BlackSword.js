@@ -1,4 +1,4 @@
-import { Weapon } from '@/assets/data/weapons/_Weapon.js';
+import { Weapon } from '@/assets/data/types/Weapon.js';
 import { FORGERY } from '@/assets/data/materials/forgery.js';
 
 const blackSword = new Weapon({

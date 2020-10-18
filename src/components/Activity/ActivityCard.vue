@@ -3,7 +3,7 @@
     <ActivityCost :cost="cost" />
     <div class="info">
       <h2 class="title">
-        {{ name }}
+        {{ displayName }}
       </h2>
       <div class="content">
         <ActivityRewards :rewards="todayRewards" />
@@ -40,7 +40,7 @@ export default {
     ActivityCost,
   },
   props: {
-    'name': String,
+    'displayName': String,
     'cost': Number,
     'day': Symbol,
     'type': Symbol,

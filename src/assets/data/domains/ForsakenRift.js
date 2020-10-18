@@ -1,9 +1,9 @@
-import { Domain, DOMAINTYPE } from '@/assets/data/domains/_Domain.js';
+import { Domain, DOMAINTYPE } from '@/assets/data/types/Domain.js';
 import { DAY } from '@/assets/data/utils/days.js';
 import { MASTERY } from '@/assets/data/materials/mastery.js';
 
 const forsakenRift = new Domain({
-  name: 'Forsaken Rift',
+  displayName: 'Forsaken Rift',
   rewards: {
     [DAY.MONDAY]: [MASTERY.FREEDOM],
     [DAY.TUESDAY]: [MASTERY.RESISTANCE],
