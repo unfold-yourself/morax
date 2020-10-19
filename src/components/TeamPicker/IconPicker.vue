@@ -1,6 +1,6 @@
 <template>
   <div class="iconPicker">
-    <div class="label">
+    <div class="heading">
       {{ label }}
     </div>
     <ul class="iconList">
@@ -44,8 +44,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.heading {
+  padding-bottom: 8px;
+}
+
 .iconList {
-  padding-top: 8px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 -4px;

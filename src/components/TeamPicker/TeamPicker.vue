@@ -1,12 +1,16 @@
 <template>
   <TeamPickerLayout :characterPickerLabel="characterPickerLabel"
                     :characterOptions="characterOptions"
-                    @update-icon-picker="characterSelectHandler" />
+                    :weaponPickerLabel="weaponPickerLabel"
+                    :weaponOptions="weaponOptions"
+                    @update-icon-picker="characterSelectHandler"
+                    @update-search-picker="weaponSelectHandler" />
 </template>
 
 <script>
 import TeamPickerLayout from './TeamPickerLayout.vue';
 import { characters } from '@/assets/data/characters';
+import { weapons } from '@/assets/data/weapons';
 
 export default {
   name: 'TeamPicker',
@@ -18,6 +22,7 @@ export default {
       characterPickerLabel: 'Select which character(s) ...',
       characterOptions: characters,
       weaponPickerLabel: 'Select which weapon(s) ...',
+      weaponOptions: weapons,
     }
   },
   methods: {
@@ -27,6 +32,13 @@ export default {
       );
 
       this.$emit('update-selected-characters', selectedChars);
+    },
+    weaponSelectHandler: function(selected) {
+      let selectedWeapons = weapons.filter(
+        weapon => selected.includes(weapon.id)
+      );
+
+      this.$emit('update-selected-weapons', selectedWeapons);
     }
   },
 }

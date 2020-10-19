@@ -24,7 +24,8 @@
               :key="activity.id"
               class="listItem">
             <Activity v-bind="activity"
-                      :day="_day" />
+                      :day="_day"
+                      :selectedWeapons="selectedWeapons" />
           </li>
         </ul>
       </div>
@@ -43,6 +44,7 @@ export default {
   props: {
     '_day': Symbol,
     'selectedCharacters': Array,
+    'selectedWeapons': Array,
     'orderedActivities_mastery': Array,
     'orderedActivities_forgery': Array,
   },

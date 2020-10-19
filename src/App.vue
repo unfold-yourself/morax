@@ -2,9 +2,11 @@
   <div id="app">
     <Header />
     <DayPicker @change-day="updateDay" :_day="day"/>
-    <TeamPicker @update-selected-characters="updateSelectedCharacters" />
+    <TeamPicker @update-selected-characters="updateSelectedCharacters"
+                @update-selected-weapons="updateSelectedWeapons" />
     <ActivitySuggester :_day="day"
-                       :selectedCharacters="selectedCharacters" />
+                       :selectedCharacters="selectedCharacters"
+                       :selectedWeapons="selectedWeapons" />
     <Footer />
   </div>
 </template>
@@ -32,6 +34,7 @@ export default {
     return {
       day: dayOfWeekInfo[date.getDay()].symbol,
       selectedCharacters: [],
+      selectedWeapons: [],
     }
   },
   methods: {
@@ -40,6 +43,9 @@ export default {
     },
     updateSelectedCharacters: function(selected) {
       this.selectedCharacters = selected;
+    },
+    updateSelectedWeapons: function(selected) {
+      this.selectedWeapons = selected;
     }
   },
 }

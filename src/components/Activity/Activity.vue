@@ -25,6 +25,7 @@ export default {
     'day': Symbol,
     'type': Symbol,
     'selectedCharacters': Array,
+    'selectedWeapons': Array,
   },
   computed: {
     // Returns a list of rewards for this `Activity` on this `day of the week`
@@ -56,6 +57,11 @@ export default {
       return weapons.filter(weapon => {
         return weapon.ascensionMaterials
           .some(material => this.dayRewards.indexOf(material) >= 0);
+      }).map(weapon => ({
+        isSelected: this.selectedWeapons.includes(weapon),
+        ...weapon,
+      })).sort((lho, rho) => {
+        return (lho.isSelected === rho.isSelected) ? 0 : lho.isSelected ? -1 : 1;
       });
     },
   },

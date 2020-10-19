@@ -3,7 +3,7 @@
     <ul class="list">
       <li v-for="item in usedFor"
           :key="item.id"
-          class="listItem">
+          :class="item.isSelected ? 'listItem is-selected' : 'listItem'">
         <img class="image"
             :src="require('@/assets/' + item.iconImageSrc)"
             :alt="item.displayName" />
@@ -42,10 +42,14 @@ export default {
   padding: 2px;
   border-radius: 999px;
   width: calc(50% - 4px);
-  border: 1px solid #222;
+  border: 2px solid #222;
   display: flex;
   align-items: center;
   background-color: #444;
+
+  &.is-selected {
+    border-color: cornflowerblue;
+  }
 }
 
 .image {

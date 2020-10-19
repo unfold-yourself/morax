@@ -8,7 +8,6 @@
 import ActivitySuggesterLayout from './ActivitySuggesterLayout.vue';
 import { domains } from '@/assets/data/domains';
 import { DOMAINTYPE } from '@/assets/data/types/Domain.js';
-import { weapons } from '@/assets/data/weapons';
 import { instance as ActivitySuggesterInstance } from '@/scripts/ActivitySuggester';
 
 export default {
@@ -19,6 +18,7 @@ export default {
   props: {
     '_day': Symbol,
     'selectedCharacters': Array,
+    'selectedWeapons': Array,
   },
   computed: {
     // Returns a list of Domains of Mastery in priority order
@@ -32,7 +32,7 @@ export default {
     // Returns a list of Domains of Forgery in priority order
     orderedActivities_forgery: function() {
       let priorities = [[
-        ...weapons,
+        ...this.selectedWeapons,
       ]];
       let activities = domains.filter(domain => domain.type === DOMAINTYPE.FORGERY);
       return ActivitySuggesterInstance.calculate(priorities, activities, this._day);

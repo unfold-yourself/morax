@@ -1,4 +1,5 @@
 import { Character } from '@/assets/data/types/Character.js';
+import { Weapon } from '@/assets/data/types/Weapon.js';
 
 /**
  * Priority Values:
@@ -43,6 +44,10 @@ class ActivitySuggester {
       itemset.forEach(item => {
         if (item instanceof Character) {
           item.talentMaterials.forEach(material => {
+            this.updateMapVal(materialMap, material, 1, itemsetIdx+1);
+          });
+        } else if (item instanceof Weapon) {
+          item.ascensionMaterials.forEach(material => {
             this.updateMapVal(materialMap, material, 1, itemsetIdx+1);
           });
         }
