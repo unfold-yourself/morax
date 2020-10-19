@@ -19,9 +19,9 @@ export default {
   },
   data: function() {
     return {
-      characterPickerLabel: 'Select which character(s) ...',
+      characterPickerLabel: 'Select characters:',
       characterOptions: characters,
-      weaponPickerLabel: 'Select which weapon(s) ...',
+      weaponPickerLabel: 'Select weapons:',
       weaponOptions: weapons,
     }
   },

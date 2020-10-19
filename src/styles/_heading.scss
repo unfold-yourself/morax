@@ -1,0 +1,13 @@
+@mixin Heading--h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+@mixin Heading--h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@mixin Heading--h4 {
+  font-size: 18px;
+}

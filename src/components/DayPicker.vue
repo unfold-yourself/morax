@@ -1,14 +1,14 @@
 <template>
   <div class="dayPicker">
-    <div class="content">
-      <span class="label">Today is</span>
-      <select v-model="selectedDay">
-        <option v-for="option in dayOptions"
-                :value="option.index"
-                :key="option.index">
+    <div class="container">
+      <div class="content">
+        <button v-for="option in dayOptions"
+                :key="option.index"
+                @click="changeDay(option.index)"
+                :class="selectedDay === option.index ? 'button is-selected' : 'button'">
           {{ option.name }}
-        </option>
-      </select>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -23,16 +23,20 @@ export default {
   },
   data: function () {
     return {
-      selectedDay: dayOfWeekInfo.findIndex(day => day.symbol === this._day),
       dayOptions: dayOfWeekInfo.map((day, idx) => ({
         name: day.displayName,
         index: idx,
-      }))
+      })),
     }
   },
-  watch: {
+  computed: {
     selectedDay: function() {
-      this.$emit('change-day', dayOfWeekInfo[this.selectedDay].symbol);
+      return dayOfWeekInfo.findIndex(day => day.symbol === this._day);
+    }
+  },
+  methods: {
+    changeDay: function(idx) {
+      this.$emit('change-day', dayOfWeekInfo[idx].symbol);
     }
   }
 }
@@ -40,18 +44,29 @@ export default {
 
 <style lang="scss" scoped>
 .dayPicker {
-  @include l-container;
+  background-color: $tabs-bg-color;
 }
 
 .content {
-  padding: 16px 0;
   display: flex;
   justify-content: center;
 }
 
-.label {
-  &::after {
-    content: ' ';
+.button {
+  @include focus-none;
+  @include Heading--h4;
+  padding: 12px 18px 8px;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $tabs-hover-color;
+  }
+
+  &.is-selected {
+    background-color: $base-bg-color;
+    font-weight: 700;
+    color: #fff;
   }
 }
 </style>

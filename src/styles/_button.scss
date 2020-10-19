@@ -1,6 +1,16 @@
-@mixin button-focus-state {
-  &:focus {
-    outline: 2px solid #4d90fe;
-    outline-offset: 2px;
+@mixin button--card {
+  @include focus-subtle;
+  display: block;
+  width: 100%;
+  max-width: calc(68px*3);
+  padding: 4px 8px;
+  border: 1px solid $card-emph-color;
+  background-color: $card-highlight-color;
+  border-radius: 999px;
+  margin: 0 auto;
+  color: #fff;
+
+  &:hover {
+    background-color: $card-emph-color;
   }
 }

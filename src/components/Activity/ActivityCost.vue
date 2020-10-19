@@ -22,7 +22,8 @@ export default {
   align-items: center;
   padding: 4px 8px;
   border-radius: 999px;
-  background-color: #0006;
+  background-color:#666;
+  color: #fff;
 
   &::before
   {
@@ -32,7 +33,7 @@ export default {
     background-position: center center;
     height: 16px;
     width: 16px;
-    margin-right: 4px;
+    margin-right: 8px;
   }
 }
 </style>

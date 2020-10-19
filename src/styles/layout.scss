@@ -43,9 +43,67 @@
   }
 }
 
+.container {
+  @include l-container;
+}
+
 @mixin l-card {
   border-radius: 8px;
-  border: 1px solid black;
   overflow: hidden;
   padding: 8px;
+  height: 100%;
+  width: 100%;
+  border-top: 8px solid $card-highlight-color;
+}
+
+@mixin l-2-cols {
+  display: flex;
+  flex-direction: column;
+  max-width: 940px;
+  margin: auto;
+
+  @include bpgte(md)
+  {
+    flex-direction: row;
+  }
+
+  // Elements which are followed by a sibling should have a divider line
+  & > * + * {
+    @include bpgte(md)
+    {
+      border-left: 1px solid #888;
+    }
+  }
+
+  // Children elements should be split into two equal width columns
+  & > * {
+    width: 100%;
+
+    @include bpgte(md)
+    {
+      width: 50%;
+      flex: 1 1 auto;
+      padding: 0 60px;
+    }
+  }
+}
+
+@mixin focus-custom {
+  &:focus {
+    outline: 2px solid #4d90fe;
+    outline-offset: 2px;
+  }
+}
+
+@mixin focus-subtle {
+  &:focus {
+    outline: none;
+    border: 2px solid #4d90fe;
+  }
+}
+
+@mixin focus-none {
+  &:focus {
+    outline: none;
+  }
 }

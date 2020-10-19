@@ -5,9 +5,7 @@
       <h2 class="title">
         {{ displayName }}
       </h2>
-      <div class="content">
-        <ActivityRewards :rewards="todayRewards" />
-      </div>
+      <ActivityRewards :rewards="todayRewards" />
     </div>
     <div class="collapsible" ref="js-collapsible">
       <div class="collapsibleContent" ref="js-collapsible-content">
@@ -18,7 +16,8 @@
       </div>
     </div>
     <div v-if="hasCollapsibleContent" class="toggle">
-      <button class="toggleBtn" v-on:click="toggleAccordion">
+      <button :class="accordionOpen ? 'toggleBtn' : 'toggleBtn toggleBtn--withLine'"
+              v-on:click="toggleAccordion">
         {{ buttonText }}
       </button>
     </div>
@@ -50,7 +49,7 @@ export default {
   },
   data: function() {
     return {
-      accordionOpen: this.buttonState || false,
+      accordionOpen: false,
       initialHeight: 0, // initialized in onMount() lifecycle hook
       initialIconsAmt: 6,
       initialListAmt: 6,
@@ -111,12 +110,9 @@ export default {
 <style lang="scss" scoped>
 .activity {
   @include l-card;
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  background-color: $card-bg-color;
+  z-index: 10;
 }
 
 .info {
@@ -125,15 +121,9 @@ export default {
 }
 
 .title {
-  font-size: 28px;
-  font-weight: 700;
+  @include Heading--h2;
   margin-bottom: 4px;
   margin-right: 54px;
-}
-
-.content {
-  display: flex;
-  justify-content: space-between;
 }
 
 .collapsible {
@@ -148,25 +138,24 @@ export default {
 }
 
 .toggleBtn {
-  @include button-focus-state;
-  display: block;
-  width: calc(68px * 3);
-  padding: 4px 8px;
-  border: 1px solid #444;
-  background-color: #fff;
-  border-radius: 999px;
-  margin: 0 auto;
+  @include button--card;
 
-  &::before
-  {
+  &::after {
     content: '';
     position: absolute;
     top: 50%;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    transition: width 0.1s ease-in-out;
     height: 1px;
-    background-color: #444;
+    background-color: $card-emph-color;
     z-index: -1;
+  }
+
+  &--withLine::after
+  {
+    width: 100%;
   }
 }
 </style>

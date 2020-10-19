@@ -4,7 +4,7 @@
       {{ label }}
     </div>
     <div class="searchWrapper">
-      <MultiSelect placeholderText="type to search ..."
+      <MultiSelect placeholderText="Search for a weapon"
                   :options="options"
                   :selectedIds="selected"
                   @option-select="addOptionById" />
@@ -69,11 +69,12 @@ export default {
 
 <style lang="scss" scoped>
 .heading {
+  @include Heading--h3;
   padding-bottom: 8px;
 }
 
 .searchWrapper {
-  width: 300px;
+  width: 250px;
 }
 
 .selectedOptions {

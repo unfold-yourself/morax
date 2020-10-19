@@ -7,10 +7,12 @@
       <li v-for="option in options"
           :key="option.id"
           class="iconListItem">
-        <img :class="selected.includes(option.id) ? 'icon is-selected' : 'icon'"
-             :src="require('@/assets/' + option.iconImageSrc)"
-             :alt="option.displayName"
-             v-on:click="clickIcon($event, option.id)" />
+        <button :class="selected.includes(option.id) ? 'iconBtn is-selected' : 'iconBtn'"
+                v-on:click="clickIcon($event, option.id)">
+          <img class="icon"
+              :src="require('@/assets/' + option.iconImageSrc)"
+              :alt="option.displayName" />
+        </button>
       </li>
     </ul>
   </div>
@@ -45,26 +47,25 @@ export default {
 
 <style lang="scss" scoped>
 .heading {
+  @include Heading--h3;
   padding-bottom: 8px;
 }
 
 .iconList {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -4px;
+  margin: 0 -3px;
 }
 
-.iconListItem {
-  margin: 4px;
-}
-
-.icon {
-  width: 40px;
-  height: 40px;
-  background-color: paleturquoise;
-  border-radius: 50%;
+.iconBtn{
+  @include focus-subtle;
+  width: 45px;
+  height: 45px;
+  margin: 3px;
+  border-radius: 4px;
   border: 2px solid #0000;
-
+  overflow: hidden;
+  
   &:hover {
     cursor: pointer;
   }
@@ -72,5 +73,11 @@ export default {
   &.is-selected {
     border: 2px solid green;
   }
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  background-color: paleturquoise;
 }
 </style>

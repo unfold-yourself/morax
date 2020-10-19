@@ -24,30 +24,33 @@ export default {
 <style lang="scss" scoped>
 .activityPurpose {
   padding-top: 16px;
-  border-top: 1px solid #222;
+  border-top: 1px solid $card-divider-color;
 }
+
+$icon-size: 68px;
 
 .list {
   display: flex;
-  width: calc(68px * 3);
+  width: calc(#{$icon-size} * 3);
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .listItem {
-  width: 68px;
-  height: 68px;
+  width: $icon-size;
+  height: $icon-size;
+  padding: 4px;
 }
 
 .image {
-  width: 60px;
-  height: 60px;
-  margin: 4px;
-  background-color: paleturquoise;
+  width: 100%;
+  height: 100%;
+  background-color: $character-icon-bg;
+  border-radius: 6px;
 
   &.is-selected {
-    background-color: palegreen;
+    background-color: $character-icon-active;
   }
 }
 </style>

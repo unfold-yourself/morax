@@ -1,33 +1,35 @@
 <template>
   <div class="activitySuggester">
-    <div class="content">
-      <div class="masteryActivities">
-        <h2 class="heading">
-          Domain of Mastery
-        </h2>
-        <ul class="list">
-          <li v-for="activity in orderedActivities_mastery"
-              :key="activity.id"
-              class="listItem">
-            <Activity v-bind="activity"
-                      :day="_day"
-                      :selectedCharacters="selectedCharacters" />
-          </li>
-        </ul>
-      </div>
-      <div class="forgeryActivities">
-        <h2 class="heading">
-          Domain of Forgery
-        </h2>
-        <ul class="list">
-          <li v-for="activity in orderedActivities_forgery"
-              :key="activity.id"
-              class="listItem">
-            <Activity v-bind="activity"
-                      :day="_day"
-                      :selectedWeapons="selectedWeapons" />
-          </li>
-        </ul>
+    <div class="container">
+      <div class="content">
+        <div class="masteryActivities">
+          <h2 class="heading">
+            {{ mastery_label }}
+          </h2>
+          <ul class="list">
+            <li v-for="activity in orderedActivities_mastery"
+                :key="activity.id"
+                class="listItem">
+              <Activity v-bind="activity"
+                        :day="_day"
+                        :selectedCharacters="selectedCharacters" />
+            </li>
+          </ul>
+        </div>
+        <div class="forgeryActivities">
+          <h2 class="heading">
+            {{ forgery_label }}
+          </h2>
+          <ul class="list">
+            <li v-for="activity in orderedActivities_forgery"
+                :key="activity.id"
+                class="listItem">
+              <Activity v-bind="activity"
+                        :day="_day"
+                        :selectedWeapons="selectedWeapons" />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -48,53 +50,39 @@ export default {
     'orderedActivities_mastery': Array,
     'orderedActivities_forgery': Array,
   },
+  data: function() {
+    return {
+      mastery_label: 'Domains of Mastery',
+      forgery_label: 'Domains of Forgery',
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .activitySuggester {
-  @include l-container;
+  background-color: $base-bg-color;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  max-width: 940px;
-  margin: auto;
-
-  @include bpgte(md)
-  {
-    flex-direction: row;
-  }
-
-  & > * + * {
-    border-left: 1px solid #888;
-  }
-}
-
-.masteryActivities,
-.forgeryActivities {
-  flex-grow: 1;
-  flex-basis: 50%;
-  padding: 0 60px;
+  @include l-2-cols;
+  padding: 32px 0;
 }
 
 .heading {
-  font-size: 24px;
-  padding: 0 8px;
+  @include Heading--h3;
   text-align: center;
-  font-weight: 700;
+  color: #fff;
 }
 
 .list {
-  padding: 16px 0;
+  padding: 8px 0;
   display: flex;
   flex-direction: column;
 }
 
 .listItem {
   padding: 8px 0;
-  box-sizing: border-box;
 
   @include bpgte(md)
   {

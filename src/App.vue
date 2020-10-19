@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <DayPicker @change-day="updateDay" :_day="day"/>
     <TeamPicker @update-selected-characters="updateSelectedCharacters"
                 @update-selected-weapons="updateSelectedWeapons" />
+    <DayPicker @change-day="updateDay" :_day="day"/>
     <ActivitySuggester :_day="day"
                        :selectedCharacters="selectedCharacters"
                        :selectedWeapons="selectedWeapons" />

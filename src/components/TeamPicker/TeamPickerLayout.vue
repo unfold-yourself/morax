@@ -1,12 +1,14 @@
 <template>
   <div class="teamPicker">
-    <div class="content">
-      <IconPicker :label="characterPickerLabel"
-                  :options="characterOptions"
-                  v-on="$listeners" />
-      <SearchPicker :label="weaponPickerLabel"
-                    :options="weaponOptions"
+    <div class="container">
+      <div class="content">
+        <IconPicker :label="characterPickerLabel"
+                    :options="characterOptions"
                     v-on="$listeners" />
+        <SearchPicker :label="weaponPickerLabel"
+                      :options="weaponOptions"
+                      v-on="$listeners" />
+      </div>
     </div>
   </div>
 </template>
@@ -32,23 +34,15 @@ export default {
 
 <style lang="scss" scoped>
 .teamPicker {
-  @include l-container;
+  background-color: $card-bg-color;
 }
 
 .content {
-  display: flex;
-  max-width: 960px;
-  margin: 0 auto;
-  padding-bottom: 24px;
+  @include l-2-cols;
+  padding: 16px 0;
 
   & > * {
-    width: 50%;
-    flex-grow: 1;
-    padding: 0 42px;
-
-    &:not(:last-child) {
-      border-right: 1px solid #888;
-    }
+    margin: 0 -1px;
   }
 }
 </style>
