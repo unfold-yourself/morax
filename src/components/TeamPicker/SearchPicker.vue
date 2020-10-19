@@ -9,7 +9,7 @@
                   :selectedIds="selected"
                   @option-select="addOptionById" />
     </div>
-    <ul class="selectedOptions">
+    <ul v-if="selectedOptions.length > 0" class="selectedOptions">
       <li v-for="option in selectedOptions"
           :key="option.id"
           class="option"
@@ -61,7 +61,7 @@ export default {
       this.selected.includes(id) ? {} : this.selected.push(id);
     },
     removeOptionById: function(id) {
-      this.selected = this.selected.filter(option => option.id === id);
+      this.selected = this.selected.filter(option => option !== id);
     }
   }
 }
@@ -80,6 +80,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -2px;
+  padding-top: 8px;
 }
 
 .option {

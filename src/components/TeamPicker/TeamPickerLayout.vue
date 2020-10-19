@@ -1,11 +1,13 @@
 <template>
   <div class="teamPicker">
-    <IconPicker :label="characterPickerLabel"
-                :options="characterOptions"
-                v-on="$listeners" />
-    <SearchPicker :label="weaponPickerLabel"
-                  :options="weaponOptions"
+    <div class="content">
+      <IconPicker :label="characterPickerLabel"
+                  :options="characterOptions"
                   v-on="$listeners" />
+      <SearchPicker :label="weaponPickerLabel"
+                    :options="weaponOptions"
+                    v-on="$listeners" />
+    </div>
   </div>
 </template>
 
@@ -34,6 +36,19 @@ export default {
 }
 
 .content {
-  padding: 16px 0;
+  display: flex;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: 24px;
+
+  & > * {
+    width: 50%;
+    flex-grow: 1;
+    padding: 0 42px;
+
+    &:not(:last-child) {
+      border-right: 1px solid #888;
+    }
+  }
 }
 </style>
