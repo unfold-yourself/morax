@@ -10,7 +10,8 @@
               :key="activity.id"
               class="listItem">
             <Activity v-bind="activity"
-                      :day="_day" />
+                      :day="_day"
+                      :selectedCharacters="selectedCharacters" />
           </li>
         </ul>
       </div>
@@ -41,6 +42,7 @@ export default {
   },
   props: {
     '_day': Symbol,
+    'selectedCharacters': Array,
     'orderedActivities_mastery': Array,
     'orderedActivities_forgery': Array,
   },

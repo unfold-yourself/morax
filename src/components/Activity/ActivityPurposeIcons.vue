@@ -4,7 +4,7 @@
       <li v-for="item in usedFor"
           :key="item.id"
           class="listItem">
-        <img class="image"
+        <img :class="item.isSelected ? 'image is-selected' : 'image'"
             :src="require('@/assets/' + item.iconImageSrc)"
             :alt="item.name" />
       </li>
@@ -45,5 +45,9 @@ export default {
   height: 60px;
   margin: 4px;
   background-color: paleturquoise;
+
+  &.is-selected {
+    background-color: palegreen;
+  }
 }
 </style>

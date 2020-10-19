@@ -24,6 +24,7 @@ export default {
     'cost': Number,
     'day': Symbol,
     'type': Symbol,
+    'selectedCharacters': Array,
   },
   computed: {
     // Returns a list of rewards for this `Activity` on this `day of the week`
@@ -43,6 +44,11 @@ export default {
       return characters.filter(character => {
         return character.talentMaterials
           .some(material => this.dayRewards.indexOf(material) >= 0);
+      }).map(character => ({
+        isSelected: this.selectedCharacters.includes(character),
+        ...character,
+      })).sort((lho, rho) => {
+        return (lho.isSelected === rho.isSelected) ? 0 : lho.isSelected ? -1 : 1;
       });
     },
     // Returns a list of all weapons that can use any reward in `dayRewards`

@@ -105,9 +105,6 @@ export default {
   mounted: function() {
     this.initialHeight = this.accordionContentEl.offsetHeight;
   },
-  updated: function() {
-    console.log("updated");
-  }
 }
 </script>
 

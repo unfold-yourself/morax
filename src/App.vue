@@ -2,8 +2,9 @@
   <div id="app">
     <Header />
     <DayPicker @change-day="updateDay" :_day="day"/>
-    <TeamBuilder />
-    <ActivitySuggester :_day="day"/>
+    <TeamPicker @update-selected-characters="updateSelectedCharacters" />
+    <ActivitySuggester :_day="day"
+                       :selectedCharacters="selectedCharacters" />
     <Footer />
   </div>
 </template>
@@ -13,7 +14,7 @@ import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import ActivitySuggester from './components/ActivitySuggester/ActivitySuggester.vue';
 import DayPicker from './components/DayPicker.vue';
-import TeamBuilder from './components/TeamBuilder.vue';
+import TeamPicker from './components/TeamPicker/TeamPicker.vue';
 import { dayOfWeekInfo } from '@/assets/data/utils/days.js';
 
 const date = new Date();
@@ -25,18 +26,22 @@ export default {
     Footer,
     ActivitySuggester,
     DayPicker,
-    TeamBuilder,
+    TeamPicker,
   },
   data: function() {
     return {
-      day: dayOfWeekInfo[date.getDay()].symbol
+      day: dayOfWeekInfo[date.getDay()].symbol,
+      selectedCharacters: [],
     }
   },
   methods: {
     updateDay: function(newDay) {
       this.day = newDay;
+    },
+    updateSelectedCharacters: function(selected) {
+      this.selectedCharacters = selected;
     }
-  }
+  },
 }
 </script>
 
