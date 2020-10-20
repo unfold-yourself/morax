@@ -5,3 +5,7 @@
 @mixin Text--small {
   font-size: 12px;
 }
+
+@mixin Text--tiny {
+  font-size: 10px;
+}

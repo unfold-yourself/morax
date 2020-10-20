@@ -1,20 +1,80 @@
 <template>
   <footer class="Footer">
-    Footer content here
+    <div class="container">
+      <div class="content">
+        <div class="disclaimer">
+          {{ disclaimer }}
+        </div>
+        <ul class="linkList">
+          <li v-for="(link, idx) in links"
+              :key="idx"
+              class="linkItem">
+            <a class="link" :href="link.href">
+              {{ link.text }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </footer>
 </template>
 
 <script>
+const links = [
+  {
+    'text': 'Contact',
+    'href': 'mailto:testEmail@gmail.com',
+  },
+  {
+    'text': 'Report a bug',
+    'href': 'mailto:testEmail@gmail.com',
+  }
+];
+
 export default {
   name: 'Footer',
+  data: function() {
+    return {
+      disclaimer: 'This product is not officially endorsed by MiHoYo or the Genshin Impact team.',
+      links: links,
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .Footer {
-  height: 180px;
-  text-align: center;
-  background-color: #ddd;
-  border: 1px solid #000;
+  background-color: #666;
+}
+
+.content {
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.disclaimer {
+  @include Text--tiny;
+  color: #fff;
+}
+
+.linkList {
+  display: flex;
+  margin: 0 -8px;
+}
+
+.linkItem {
+  padding: 0 8px;
+}
+
+.link {
+  @include Text--small;
+  color: #fff;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 </style>

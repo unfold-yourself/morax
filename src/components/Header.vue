@@ -1,6 +1,12 @@
 <template>
   <header class="Header">
-    Header content here
+    <div class="container">
+      <div class="content">
+        <div class="branding">
+          Website.com
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -12,9 +18,18 @@ export default {
 
 <style lang="scss" scoped>
 .Header {
-  height: 60px;
   text-align: center;
-  background-color: #ddd;
-  border: 1px solid #000;
+  background-color: $base-bg-color;
+}
+
+.content {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
+.branding {
+  font-size: 24px;
+  color: #fff;
 }
 </style>

@@ -39,7 +39,7 @@ export default {
 
 .content {
   @include l-2-cols;
-  padding: 16px 0;
+  padding: 24px 0;
 
   & > * {
     margin: 0 -1px;
