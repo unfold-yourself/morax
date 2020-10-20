@@ -58,26 +58,29 @@ export default {
 }
 
 .iconBtn{
-  @include focus-subtle;
+  @include focus-none;
   width: 45px;
   height: 45px;
   margin: 3px;
   border-radius: 4px;
-  border: 2px solid #0000;
+  border: 2px solid $entity-border-color;
   overflow: hidden;
+  background-color: $entity-default-bg;
   
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     cursor: pointer;
+    background-color: $entity-lighter-bg;
   }
 
   &.is-selected {
-    border: 2px solid green;
+    background-color: $entity-highlight-color;
   }
 }
 
 .icon {
   width: 100%;
   height: 100%;
-  background-color: paleturquoise;
 }
 </style>

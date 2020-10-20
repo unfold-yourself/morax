@@ -46,11 +46,12 @@ $icon-size: 68px;
 .image {
   width: 100%;
   height: 100%;
-  background-color: $character-icon-bg;
+  background-color: $entity-default-bg;
   border-radius: 6px;
+  border: 2px solid $entity-border-color;
 
   &.is-selected {
-    background-color: $character-icon-active;
+    background-color: $entity-highlight-color;
   }
 }
 </style>

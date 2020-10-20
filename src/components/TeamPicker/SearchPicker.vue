@@ -88,10 +88,10 @@ export default {
   margin: 2px;
   padding: 2px;
   border-radius: 999px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid $entity-highlight-color;
   display: flex;
   align-items: center;
-  background-color: #444;
+  background-color: $entity-border-color;
   padding-right: 8px;
 
   &:hover
@@ -117,8 +117,8 @@ export default {
 }
 
 .imageRemove {
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   object-fit: cover;
   margin-left: 8px;

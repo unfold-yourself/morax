@@ -39,16 +39,18 @@ export default {
 
 .listItem {
   margin: 2px;
-  padding: 2px;
+  padding: 2px 12px 2px 2px;
+  overflow: hidden;
   border-radius: 999px;
   width: calc(50% - 4px);
-  border: 2px solid #222;
+  border: 2px solid $entity-border-color;
   display: flex;
   align-items: center;
-  background-color: #444;
+  background-color: $entity-border-color;
 
   &.is-selected {
-    border-color: cornflowerblue;
+    border-color: $entity-highlight-color;
+    // background-color: $entity-highlight-color;
   }
 }
 

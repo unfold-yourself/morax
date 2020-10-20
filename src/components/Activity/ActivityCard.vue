@@ -1,5 +1,5 @@
 <template>
-  <div class="activity">
+  <div :class="hasUsefulContent() ? 'activity is-active' : 'activity'">
     <ActivityCost :cost="cost" />
     <div class="info">
       <h2 class="title">
@@ -100,6 +100,11 @@ export default {
         });
       });
     },
+    hasUsefulContent: function() {
+      const usefulIcons = this.usedForIcons.length > 0 && this.usedForIcons[0].isSelected === true;
+      const usefulList = this.usedForList.length > 0 && this.usedForList[0].isSelected === true;
+      return usefulIcons || usefulList;
+    }
   },
   mounted: function() {
     this.initialHeight = this.accordionContentEl.offsetHeight;
@@ -113,6 +118,10 @@ export default {
   position: relative;
   background-color: $card-bg-color;
   z-index: 10;
+
+  &.is-active {
+    border-color: $entity-highlight-color;
+  }
 }
 
 .info {

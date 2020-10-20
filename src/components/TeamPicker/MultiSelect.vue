@@ -5,6 +5,7 @@
            v-model="input"
            :placeholder="placeholderText"
            @keydown="keyboardHandler($event)"
+           @focus="focusHandler"
            @blur="blurHandler"
            aria-autocomplete="list"
            aria-controls="search-autocomplete"
@@ -18,7 +19,6 @@
             :key="option.id"
             :class="focusedOptionIdx === idx ? 'option is-focused' : 'option'"
             @mousedown="mousedownHandler($event)"
-            @mouseup="mouseupHandler"
             @click="optionSelect(option.id)"
             @mouseover="optionHover(idx)"
             tabindex="0"
@@ -66,22 +66,23 @@ export default {
     selectFocusedOption: function() {
       this.optionSelect(this.filteredOptions[this.focusedOptionIdx].id);
     },
+    focusHandler: function() {
+      if (this.input !== '') {
+        this.autocompleteOpen = true;
+      }
+    },
     // Check the event before blur - if clicked on an autocomplete option, 
     //  disable blur so the autocomplete remains open for the mouseup event
     mousedownHandler: function(e) {
       const target = e.target;
-      this.disableBlur = target && target.classList.contains('autocompleteOption');
+      this.disableBlur = target && target.classList.contains('option');
     },
     // hide the autocomplete whenever the input loses focus
     blurHandler: function() {
       if (!this.disableBlur) {
         this.autocompleteOpen = false;
-      }
-    },
-    mouseupHandler: function() {
-      if (this.disableBlur) {
+      } else {
         this.disableBlur = false;
-        this.autocompleteOpen = false;
       }
     },
     // Keyboard input handler
@@ -139,12 +140,13 @@ export default {
 .input {
   @include focus-none;
   @include Text--small;
-  border-bottom: 2px solid $base-bg-color;
+  border-bottom: 2px solid $entity-border-color;
   padding: 8px 4px 4px;
   width: 100%;
 
   &:focus {
-    background-color: #ccc;
+    background-color: $entity-lighter-bg;
+    border-color: $entity-highlight-color;
   }
 }
 
@@ -157,7 +159,7 @@ export default {
   max-height: 160px;
   margin-top: 2px;
   border-radius: 6px;
-  border: 1px solid #222;
+  border: 1px solid $entity-border-color;
   overflow: hidden;
 }
 
@@ -176,7 +178,7 @@ export default {
   }
 
   &.is-focused {
-    background-color: #888;
+    background-color: $entity-lighter-bg;
   }
 }
 </style>
