@@ -1,22 +1,32 @@
 <template>
-  <div class="multiSelect">
-    <input class="input"
+  <div class="multiSelect" role="combobox" :aria-expanded="autocompleteOpen" aria-owns="search-input">
+    <input id="search-input"
+           class="input"
            v-model="input"
            :placeholder="placeholderText"
-           @keyup.enter="selectFocusedOption"
+           @keydown="keyboardHandler($event)"
            @blur="blurHandler"
-           @focus="focusHandler" />
-    <ul :class="autocompleteOpen ? 'autocomplete is-visible' : 'autocomplete'">
-      <li v-for="option in filteredOptions"
-          :key="option.id"
-          class="autocompleteOption"
-          @mousedown="mousedownHandler($event)"
-          @mouseup="mouseupHandler"
-          v-on:click="optionSelect(option.id)"
-          tabindex="0">
-        {{ option.displayName }} ({{ option.rarity }}*)
-      </li>
-    </ul>
+           aria-autocomplete="list"
+           aria-controls="search-autocomplete"
+           :aria-activedescendant="autocompleteOpen ? 'autocomplete-option-' + focusedOptionIdx : ''"/>
+    <div v-if="autocompleteOpen && filteredOptions.length > 0" class="autocomplete">
+      <ul id="search-autocomplete"
+          class="list"
+          role="listbox">
+        <li v-for="(option, idx) in filteredOptions"
+            :id="'autocomplete-option-' + idx"
+            :key="option.id"
+            :class="focusedOptionIdx === idx ? 'option is-focused' : 'option'"
+            @mousedown="mousedownHandler($event)"
+            @mouseup="mouseupHandler"
+            @click="optionSelect(option.id)"
+            @mouseover="optionHover(idx)"
+            tabindex="0"
+            :aria-selected="focusedOptionIdx === idx">
+          {{ option.displayName }} ({{ option.rarity }}*)
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -33,6 +43,7 @@ export default {
       input: '',
       autocompleteOpen: false,
       disableBlur: false,
+      focusedOptionIdx: 0,
     }
   },
   computed: {
@@ -49,10 +60,11 @@ export default {
       this.$emit('option-select', clickedId);
       this.input = '';
     },
+    optionHover: function(clickedId) {
+      this.focusedOptionIdx = clickedId;
+    },
     selectFocusedOption: function() {
-      // TODO: navigate options with arrow keys or TAB, track current focused option
-      this.$emit('option-select', this.filteredOptions[0].id);
-      this.input = '';
+      this.optionSelect(this.filteredOptions[this.focusedOptionIdx].id);
     },
     // Check the event before blur - if clicked on an autocomplete option, 
     //  disable blur so the autocomplete remains open for the mouseup event
@@ -72,17 +84,50 @@ export default {
         this.autocompleteOpen = false;
       }
     },
-    // show the autocopmlete whenever the input gains focus & there is text already present
-    focusHandler: function() {
-      this.autocompleteOpen = true;
-    },
+    // Keyboard input handler
+    keyboardHandler: function(e) {
+      const specialKeys = [
+        'Enter',
+        'Tab',
+        'Escape', 'Esc',
+        'ArrowDown', 'Down',
+        'ArrowUp', 'Up'
+      ];
+
+      if (specialKeys.includes(e.key)) { e.preventDefault(); }
+
+      switch (e.key) {
+        case 'Enter':
+          this.selectFocusedOption();
+          break;
+        case 'Tab':
+        case 'ArrowDown':
+        case 'Down':
+          this.focusedOptionIdx = this.focusedOptionIdx >= this.filteredOptions.length ?
+            0 :
+            this.focusedOptionIdx + 1;
+          break;
+        case 'ArrowUp':
+        case 'Up':
+          this.focusedOptionIdx = this.focusedOptionIdx <= 0 ?
+            this.filteredOptions.length - 1 :
+            this.focusedOptionIdx - 1;
+          break;
+        case 'Escape':
+        case 'Esc':
+          this.autocompleteOpen = false;
+          break;
+      }
+    }
   },
   watch: {
-    // show/hide the autocomplete (update whenever input changes)
     input: function() {
+      if (this.input === '') {
+        this.focusedOptionIdx = 0;
+      }
       this.autocompleteOpen = this.input !== '';
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -95,7 +140,7 @@ export default {
   @include focus-none;
   @include Text--small;
   border-bottom: 2px solid $base-bg-color;
-  padding: 8px 4px;
+  padding: 8px 4px 4px;
   width: 100%;
 
   &:focus {
@@ -109,23 +154,29 @@ export default {
   top: 100%;
   width: 100%;
   height: auto;
-  max-height: 100px;
-  overflow-y: auto;
-  background-color: #fff;
-  display: none;
-
-  &.is-visible {
-    display: block;
-  }
+  max-height: 160px;
+  margin-top: 2px;
+  border-radius: 6px;
+  border: 1px solid #222;
+  overflow: hidden;
 }
 
-.autocompleteOption {
+.list {
+  overflow-y: auto;
+  background-color: #fff;
+  max-height: 160px;
+}
+
+.option {
   @include Text--small;
   padding: 6px 8px;
 
   &:hover {
-    background-color: #ddd;
     cursor: pointer;
+  }
+
+  &.is-focused {
+    background-color: #888;
   }
 }
 </style>
