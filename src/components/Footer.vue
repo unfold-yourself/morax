@@ -50,13 +50,24 @@ export default {
 .content {
   padding: 16px 0;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @include bpgte(sm)
+  {
+    flex-direction: row;
+  }
 }
 
 .disclaimer {
   @include Text--tiny;
   color: #fff;
+
+  @include bplte(xs)
+  {
+    margin-bottom: 8px;
+  }
 }
 
 .linkList {

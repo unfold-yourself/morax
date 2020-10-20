@@ -67,6 +67,7 @@ export default {
 .content {
   @include l-2-cols;
   padding: 32px 0;
+  min-height: 80vh;
 }
 
 .heading {

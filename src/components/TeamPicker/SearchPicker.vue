@@ -125,8 +125,8 @@ export default {
 }
 
 .imageRemove {
-  height: 20px;
-  width: 20px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   object-fit: cover;
   margin-left: 8px;

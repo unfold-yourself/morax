@@ -44,5 +44,12 @@ export default {
   & > * {
     margin: 0 -1px;
   }
+
+  & > * + * {
+    @include bplte(xs)
+    {
+      margin-top: 16px;
+    }
+  }
 }
 </style>

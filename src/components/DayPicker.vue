@@ -1,23 +1,30 @@
 <template>
   <div class="dayPicker">
-    <div class="container">
-      <div class="content">
-        <div class="activeBackground"
-             ref="js-activeBackground">
-          <div v-for="option in dayOptions"
-               :key="option.index"
-               class="activeDay"
-               :ref="selectedDay === option.index ? 'js-activeDay' : null">
-            {{ option.name }}
-          </div>
-        </div>
-        <button v-for="option in dayOptions"
-                :key="option.index"
-                @click="changeDay(option.index)"
-                :class="selectedDay === option.index ? 'button is-selected' : 'button'">
+    <div class="content">
+      <div class="activeBackground"
+            ref="js-activeBackground">
+        <div v-for="option in dayOptions"
+              :key="option.index"
+              class="activeDay"
+              :ref="selectedDay === option.index ? 'js-activeDay' : null">
           {{ option.name }}
-        </button>
+        </div>
       </div>
+      <button v-for="option in dayOptions"
+              :key="option.index"
+              @click="changeDay(option.index)"
+              :class="selectedDay === option.index ? 'button is-selected' : 'button'">
+        {{ option.name }}
+      </button>
+    </div>
+    <div class="mobileContent">
+      <select v-model="daySelect" class="mobileSelect">
+        <option v-for="option in dayOptions"
+                :key="option.index"
+                :value="option.index">
+          {{ option.name }}
+        </option>
+      </select>
     </div>
   </div>
 </template>
@@ -36,6 +43,7 @@ export default {
         name: day.displayName,
         index: idx,
       })),
+      daySelect: dayOfWeekInfo.findIndex(day => day.symbol === this._day),
     }
   },
   computed: {
@@ -55,6 +63,11 @@ export default {
       activeBackgroundEl.style.clipPath = `inset(0 ${offsetRight}px 0 ${offsetLeft}px)`;
     }
   },
+  watch: {
+    daySelect: function() {
+      this.changeDay(this.daySelect);
+    }
+  },
   mounted: function() {
     this.updateActiveDay();
   },
@@ -70,9 +83,31 @@ export default {
 }
 
 .content {
+  max-width: 940px;
+  margin: auto;
   display: flex;
   justify-content: center;
   position: relative;
+
+  @include bplte(xs)
+  {
+    display: none;
+  }
+}
+
+.mobileContent {
+  display: none;
+  padding: 8px 16px;
+
+  @include bplte(xs)
+  {
+    display: block;
+  }
+}
+
+.mobileSelect {
+  appearance: auto;
+  width: 100%;
 }
 
 .activeBackground {
