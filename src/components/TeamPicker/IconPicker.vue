@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { LocalStorage } from '@/scripts/LocalStorage';
+
 export default {
   name: 'IconPicker',
   props: {
@@ -40,8 +42,15 @@ export default {
   watch: {
     selected: function() {
       this.$emit('update-icon-picker', this.selected);
+      
+      // Push data to browser localStorage
+      LocalStorage.serializedSet('selectedCharacters', this.selected);
     }
-  }
+  },
+  // Check browser localStorage to see if there is data saved from a previous instance
+  mounted: function() {
+    this.selected = LocalStorage.serializedGet('selectedCharacters') || this.selected;
+  },
 }
 </script>
 

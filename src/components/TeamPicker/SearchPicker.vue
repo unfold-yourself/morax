@@ -31,6 +31,7 @@
 <script>
 import MultiSelect from './MultiSelect.vue';
 import { weapons } from '@/assets/data/weapons';
+import { LocalStorage } from '@/scripts/LocalStorage';
 
 export default {
   name: 'SearchPicker',
@@ -54,6 +55,9 @@ export default {
   watch: {
     selected: function() {
       this.$emit('update-search-picker', this.selected);
+
+      // Push data to browser localStorage
+      LocalStorage.serializedSet('selectedWeapons', this.selected);
     }
   },
   methods: {
@@ -63,7 +67,11 @@ export default {
     removeOptionById: function(id) {
       this.selected = this.selected.filter(option => option !== id);
     }
-  }
+  },
+  // Check browser localStorage to see if there is data saved from a previous instance
+  mounted: function() {
+    this.selected = LocalStorage.serializedGet('selectedWeapons') || this.selected;
+  },
 }
 </script>
 
