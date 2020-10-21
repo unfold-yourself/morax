@@ -2,8 +2,12 @@
   <footer class="Footer">
     <div class="container">
       <div class="content">
-        <div class="disclaimer">
-          {{ disclaimer }}
+        <div class="info">
+          <div v-for="(disclaimer, idx) in disclaimers"
+               :key="idx"
+               class="disclaimer">
+            {{ disclaimer }}
+          </div>
         </div>
         <ul class="linkList">
           <li v-for="(link, idx) in links"
@@ -35,7 +39,10 @@ export default {
   name: 'Footer',
   data: function() {
     return {
-      disclaimer: 'This product is not officially endorsed by MiHoYo or the Genshin Impact team.',
+      disclaimers: [
+        'This website is not officially endorsed by MiHoYo or the Genshin Impact team.',
+        'This website may not be up to date with live servers.'
+      ],
       links: links,
     }
   },

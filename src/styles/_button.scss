@@ -1,9 +1,10 @@
 @mixin button--card {
   @include focus-subtle;
+  @include Text--small;
   display: block;
   width: 100%;
-  max-width: calc(68px*3);
-  padding: 4px 8px;
+  max-width: calc(68px*2);
+  padding: 2px 4px;
   border: 1px solid $card-emph-color;
   background-color: $card-highlight-color;
   border-radius: 999px;
@@ -11,6 +12,6 @@
   color: #fff;
 
   &:hover {
-    background-color: $card-emph-color;
+    background-color: $card-divider-color;
   }
 }

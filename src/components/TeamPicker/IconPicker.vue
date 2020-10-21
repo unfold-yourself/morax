@@ -7,7 +7,7 @@
       <li v-for="option in options"
           :key="option.id"
           class="iconListItem">
-        <button :class="selected.includes(option.id) ? 'iconBtn is-selected' : 'iconBtn'"
+        <button :class="selected.includes(option.id) ? 'iconBtn is-selected' : 'iconBtn is-not-selected'"
                 v-on:click="clickIcon($event, option.id)">
           <img class="icon"
               :src="require('@/assets/' + option.iconImageSrc)"
@@ -84,7 +84,15 @@ export default {
   }
 
   &.is-selected {
-    background-color: $entity-highlight-color;
+    background-image: linear-gradient(
+                        to bottom right,
+                        $entity-highlight-color,
+                        $entity-highlight-contrast);
+    border-color: $entity-highlight-contrast;
+  }
+
+  &.is-not-selected {
+    // filter: grayscale(50%);
   }
 }
 

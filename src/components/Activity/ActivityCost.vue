@@ -16,7 +16,7 @@ export default {
 <style lang="scss" scoped>
 .activityCost {
   position: absolute;
-  top: 18px;
+  top: 8px;
   right: 8px;
   display: flex;
   align-items: center;

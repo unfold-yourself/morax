@@ -124,7 +124,6 @@ export default {
 
 @mixin DayPicker-button {
   @include Heading--h4;
-  padding: 12px 18px 8px;
   width: 140px;
   flex: 1 1 auto;
   text-align: center;
@@ -132,6 +131,7 @@ export default {
 
 .activeDay {
   @include DayPicker-button;
+  padding: 8px 18px;
   font-weight: 700;
   color: #fff;
   cursor: default;
@@ -141,7 +141,7 @@ export default {
   @include focus-none;
   @include DayPicker-button;
   border-bottom: 4px solid transparent;
-  padding: 12px 18px 4px;
+  padding: 8px 18px 4px;
 
   &:hover,
   &:active,

@@ -92,10 +92,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-size: 12px;
 }
 
 .label {
   @include Text--small;
+  font-family: $font-family-secondary;
   color: #fff;
   padding-bottom: 4px;
 }

@@ -31,9 +31,17 @@ export default {
   padding: 4px 0;
 }
 
+.rewardsList {
+  margin: 8px 12px;
+}
+
 .rewardIcon {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   margin-right: 8px;
+}
+
+.rewardLabel {
+  @include Text--medium;
 }
 </style>

@@ -3,9 +3,6 @@
     <div class="container">
       <div class="content">
         <div class="masteryActivities">
-          <h2 class="heading">
-            {{ mastery_label }}
-          </h2>
           <ul class="list">
             <li v-for="activity in orderedActivities_mastery"
                 :key="activity.id"
@@ -17,9 +14,6 @@
           </ul>
         </div>
         <div class="forgeryActivities">
-          <h2 class="heading">
-            {{ forgery_label }}
-          </h2>
           <ul class="list">
             <li v-for="activity in orderedActivities_forgery"
                 :key="activity.id"
@@ -50,12 +44,6 @@ export default {
     'orderedActivities_mastery': Array,
     'orderedActivities_forgery': Array,
   },
-  data: function() {
-    return {
-      mastery_label: 'Domains of Mastery',
-      forgery_label: 'Domains of Forgery',
-    }
-  }
 }
 </script>
 
@@ -68,12 +56,6 @@ export default {
   @include l-2-cols;
   padding: 32px 0;
   min-height: 80vh;
-}
-
-.heading {
-  @include Heading--h3;
-  text-align: center;
-  color: #fff;
 }
 
 .list {

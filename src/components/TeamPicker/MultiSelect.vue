@@ -146,7 +146,7 @@ export default {
 
   &:focus {
     background-color: $entity-lighter-bg;
-    border-color: $entity-highlight-color;
+    border-color: $entity-highlight-contrast;
   }
 }
 

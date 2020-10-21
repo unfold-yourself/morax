@@ -4,7 +4,7 @@
       <li v-for="item in usedFor"
           :key="item.id"
           class="listItem">
-        <img :class="item.isSelected ? 'image is-selected' : 'image'"
+        <img :class="item.isSelected ? 'image is-selected' : 'image is-not-selected'"
             :src="require('@/assets/' + item.iconImageSrc)"
             :alt="item.name" />
       </li>
@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .activityPurpose {
-  padding-top: 16px;
+  padding-top: 12px;
   border-top: 1px solid $card-divider-color;
 }
 
@@ -51,7 +51,15 @@ $icon-size: 68px;
   border: 2px solid $entity-border-color;
 
   &.is-selected {
-    background-color: $entity-highlight-color;
+    background-image: linear-gradient(
+                        to bottom right,
+                        $entity-highlight-color,
+                        $entity-highlight-contrast);
+    border-color: $entity-highlight-contrast;
+  }
+
+  &.is-not-selected {
+    filter: grayscale(80%);
   }
 }
 </style>

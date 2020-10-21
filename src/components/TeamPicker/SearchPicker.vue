@@ -94,17 +94,32 @@ export default {
 
 .option {
   margin: 2px;
-  padding: 2px;
+  padding: 4px;
   border-radius: 999px;
-  border: 2px solid $entity-highlight-color;
   display: flex;
   align-items: center;
   background-color: $entity-border-color;
   padding-right: 8px;
+  position: relative;
+  overflow: hidden;
 
   &:hover
   {
     cursor: pointer;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background-image: linear-gradient(
+                        to right,
+                        $entity-highlight-contrast,
+                        $entity-highlight-contrast 20%,
+                        $entity-border-color);
   }
 }
 
@@ -115,6 +130,7 @@ export default {
   object-fit: cover;
   margin-right: 8px;
   background-color: #fff;
+  z-index: 10;
 }
 
 .label {
@@ -122,11 +138,12 @@ export default {
   flex-grow: 1;
   text-align: center;
   font-size: 12px;
+  z-index: 10;
 }
 
 .imageRemove {
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 14px;
   border-radius: 50%;
   object-fit: cover;
   margin-left: 8px;

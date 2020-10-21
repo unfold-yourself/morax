@@ -9,7 +9,7 @@ export const MASTERY = Object.freeze({
 
 export const masteryInfo = Object.freeze({
   [MASTERY.FREEDOM]: {
-    displayName: 'Book of "Freedom"',
+    displayName: 'Freedom',
     imageSrc: 'images/materials/mastery/teachings_of_freedom.png',
     types: [
       {
@@ -30,7 +30,7 @@ export const masteryInfo = Object.freeze({
     ],
   },
   [MASTERY.PROSPERITY]: {
-    displayName: 'Book of "Prosperity"',
+    displayName: 'Prosperity',
     imageSrc: 'images/materials/mastery/teachings_of_prosperity.png',
     types: [
       {
@@ -51,7 +51,7 @@ export const masteryInfo = Object.freeze({
     ],
   },
   [MASTERY.RESISTANCE]: {
-    displayName: 'Book of "Resistance"',
+    displayName: 'Resistance',
     imageSrc: 'images/materials/mastery/teachings_of_resistance.png',
     types: [
       {
@@ -72,7 +72,7 @@ export const masteryInfo = Object.freeze({
     ],
   },
   [MASTERY.DILIGENCE]: {
-    displayName: 'Book of "Diligence"',
+    displayName: 'Diligence',
     imageSrc: 'images/materials/mastery/teachings_of_diligence.png',
     types: [
       {
@@ -93,7 +93,7 @@ export const masteryInfo = Object.freeze({
     ],
   },
   [MASTERY.BALLAD]: {
-    displayName: 'Book of "Ballad"',
+    displayName: 'Ballad',
     imageSrc: 'images/materials/mastery/teachings_of_ballad.png',
     types: [
       {
@@ -114,7 +114,7 @@ export const masteryInfo = Object.freeze({
     ],
   },
   [MASTERY.GOLD]: {
-    displayName: 'Book of "Gold"',
+    displayName: 'Gold',
     imageSrc: 'images/materials/mastery/teachings_of_gold.png',
     types: [
       {

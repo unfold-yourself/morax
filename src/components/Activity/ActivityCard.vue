@@ -2,9 +2,7 @@
   <div :class="hasUsefulContent() ? 'activity is-active' : 'activity'">
     <ActivityCost :cost="cost" />
     <div class="info">
-      <h2 class="title">
-        {{ displayName }}
-      </h2>
+      <ActivityName :title="displayName" :subtitle="subtitle" />
       <ActivityRewards :rewards="todayRewards" />
     </div>
     <div class="collapsible" ref="js-collapsible">
@@ -29,6 +27,14 @@ import ActivityRewards from './ActivityRewards';
 import ActivityPurposeIcons from './ActivityPurposeIcons';
 import ActivityPurposeList from './ActivityPurposeList';
 import ActivityCost from './ActivityCost';
+import ActivityName from './ActivityName';
+import { DOMAINTYPE } from '@/assets/data/types/Domain.js';
+
+const subtitleLabelMap = {
+  [DOMAINTYPE.BLESSING]: 'Domain of Blessing',
+  [DOMAINTYPE.FORGERY]: 'Domain of Forgery',
+  [DOMAINTYPE.MASTERY]: 'Domain of Mastery',
+};
 
 export default {
   name: 'ActivityCard',
@@ -37,6 +43,7 @@ export default {
     ActivityPurposeIcons,
     ActivityPurposeList,
     ActivityCost,
+    ActivityName,
   },
   props: {
     'displayName': String,
@@ -53,6 +60,7 @@ export default {
       initialHeight: 0, // initialized in onMount() lifecycle hook
       initialIconsAmt: 6,
       initialListAmt: 6,
+      subtitle: subtitleLabelMap[this.type],
     }
   },
   computed: {
@@ -118,6 +126,7 @@ export default {
   position: relative;
   background-color: $card-bg-color;
   z-index: 10;
+  box-shadow: 4px 4px 12px #222;
 
   &.is-active {
     border-color: $entity-highlight-color;
@@ -125,18 +134,11 @@ export default {
 }
 
 .info {
-  padding: 8px;
-  padding-bottom: 16px;
-}
-
-.title {
-  @include Heading--h2;
-  margin-bottom: 4px;
-  margin-right: 54px;
+  padding: 0 8px;
 }
 
 .collapsible {
-  transition: height 0.1s ease-in-out;
+  transition: height 1s ease-in-out;
   overflow: hidden;
   margin-bottom: 8px;
 }
@@ -155,8 +157,8 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    transition: width 0.1s ease-in-out;
+    width: 0%;
+    transition: width 1s ease-in-out;
     height: 1px;
     background-color: $card-emph-color;
     z-index: -1;
