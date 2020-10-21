@@ -1,15 +1,15 @@
 import { Weapon } from '@/assets/data/types/Weapon.js';
 import { FORGERY } from '@/assets/data/materials/forgery.js';
 
-const blackSword = new Weapon({
-  displayName: 'The Black Sword',
-  rarity: 4,
+const harbingerOfDawn = new Weapon({
+  displayName: 'Harbinger of Dawn',
+  rarity: 3,
   ascensionMaterials: [
     FORGERY.WOLF
   ],
-  iconImageSrc: 'images/weapons/swords/black_sword.png',
+  iconImageSrc: 'images/weapons/swords/harbinger_of_dawn.png',
 });
 
 export {
-  blackSword
+  harbingerOfDawn
 };

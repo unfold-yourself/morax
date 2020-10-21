@@ -7,7 +7,7 @@ const favoniusSword = new Weapon({
   ascensionMaterials: [
     FORGERY.DECARABIAN
   ],
-  iconImageSrc: 'images/weapons/swords/skyward_blade.png',
+  iconImageSrc: 'images/weapons/swords/favonius_sword.png',
 });
 
 export {

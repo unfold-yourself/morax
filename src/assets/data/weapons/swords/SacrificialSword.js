@@ -7,7 +7,7 @@ const sacrificialSword = new Weapon({
   ascensionMaterials: [
     FORGERY.GLADIATOR
   ],
-  iconImageSrc: 'images/weapons/swords/skyward_blade.png',
+  iconImageSrc: 'images/weapons/swords/sacrificial_sword.png',
 });
 
 export {

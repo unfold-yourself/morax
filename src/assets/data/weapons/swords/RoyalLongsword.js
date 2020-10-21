@@ -1,15 +1,15 @@
 import { Weapon } from '@/assets/data/types/Weapon.js';
 import { FORGERY } from '@/assets/data/materials/forgery.js';
 
-const prototypeRancour = new Weapon({
-  displayName: 'Prototype Rancour',
+const royalLongsword = new Weapon({
+  displayName: 'Royal Longsword',
   rarity: 4,
   ascensionMaterials: [
-    FORGERY.ELIXIR
+    FORGERY.DECARABIAN
   ],
-  iconImageSrc: 'images/weapons/swords/prototype_rancour.png',
+  iconImageSrc: 'images/weapons/swords/royal_longsword.png',
 });
 
 export {
-  prototypeRancour
+  royalLongsword
 };

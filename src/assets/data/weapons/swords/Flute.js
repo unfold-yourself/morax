@@ -7,7 +7,7 @@ const flute = new Weapon({
   ascensionMaterials: [
     FORGERY.WOLF
   ],
-  iconImageSrc: 'images/weapons/swords/skyward_blade.png',
+  iconImageSrc: 'images/weapons/swords/flute.png',
 });
 
 export {
