@@ -1,15 +1,15 @@
 import { Weapon } from '@/assets/data/types/Weapon.js';
 import { FORGERY } from '@/assets/data/materials/forgery.js';
 
-const alleyFlash = new Weapon({
-  displayName: 'The Alley Flash',
+const favoniusWarbow = new Weapon({
+  displayName: 'Favonius Warbow',
   rarity: 4,
   ascensionMaterials: [
-    FORGERY.DECARABIAN
+    FORGERY.GLADIATOR,
   ],
-  iconImageSrc: 'images/weapons/swords/alley_flash.png',
+  iconImageSrc: 'images/weapons/bows/favonius_warbow.png',
 });
 
 export {
-  alleyFlash
+  favoniusWarbow
 };
