@@ -9,7 +9,8 @@
                 class="listItem">
               <Activity v-bind="activity"
                         :day="_day"
-                        :selectedCharacters="selectedCharacters" />
+                        :selectedCharacters="selectedCharacters"
+                        :key="_day" />
             </li>
           </ul>
         </div>
@@ -20,7 +21,8 @@
                 class="listItem">
               <Activity v-bind="activity"
                         :day="_day"
-                        :selectedWeapons="selectedWeapons" />
+                        :selectedWeapons="selectedWeapons"
+                        :key="_day" />
             </li>
           </ul>
         </div>

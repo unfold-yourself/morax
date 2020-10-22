@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @change-server="changeTimezone" />
+    <Header @change-server="changeServer" />
     <TeamPicker @update-selected-characters="updateSelectedCharacters"
                 @update-selected-weapons="updateSelectedWeapons" />
     <DayPicker @change-day="updateDay" :_day="day"/>
@@ -18,6 +18,7 @@ import ActivitySuggester from './components/ActivitySuggester/ActivitySuggester.
 import DayPicker from './components/DayPicker.vue';
 import TeamPicker from './components/TeamPicker/TeamPicker.vue';
 import { dayOfWeekInfo } from '@/assets/data/utils/days.js';
+import { TimeHandler } from '@/scripts/TimeHandler';
 
 let clientDate = new Date();
 
@@ -33,18 +34,15 @@ export default {
   data: function() {
     return {
       day: dayOfWeekInfo[clientDate.getDay()].symbol,
-      timezone: 'Australia/Brisbane',
+      serverId: 'NA',
       selectedCharacters: [],
       selectedWeapons: [],
     }
   },
   methods: {
     setDay: function() {
-      const todayTZString = new Date().toLocaleString("en-US", {
-        timeZone: this.timezone,
-      });
-      const dayOfWeek = new Date(todayTZString).getDay();
-      this.day = dayOfWeekInfo[dayOfWeek].symbol;
+      const dayIdx = TimeHandler.getServerDay(this.serverId);
+      this.day = dayOfWeekInfo[dayIdx].symbol;
     },
     updateDay: function(newDay) {
       this.day = newDay;
@@ -55,13 +53,11 @@ export default {
     updateSelectedWeapons: function(selected) {
       this.selectedWeapons = selected;
     },
-    changeTimezone: function(timezone) {
-      this.timezone = timezone;
+    changeServer: function(serverId) {
+      this.serverId = serverId;
+      this.setDay();
     },
   },
-  mounted: function() {
-    this.setDay();
-  }
 }
 </script>
 

@@ -138,9 +138,9 @@ export default {
 }
 
 .collapsible {
-  transition: height 1s ease-in-out;
+  transition: height 0.1s ease-in-out;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .toggle {
@@ -158,7 +158,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 0%;
-    transition: width 1s ease-in-out;
+    transition: width 0.1s ease-in-out;
     height: 1px;
     background-color: $card-emph-color;
     z-index: -1;

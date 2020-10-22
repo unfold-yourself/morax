@@ -41,7 +41,6 @@ export default {
   padding: 2px 10px 2px 2px;
   overflow: hidden;
   border-radius: 999px;
-  // width: calc(50% - 4px);
   display: flex;
   align-items: center;
   background-color: $entity-border-color;
@@ -49,25 +48,6 @@ export default {
 
   &.is-selected {
     background-color: $entity-highlight-contrast;
-  }
-
-  // &.is-selected::after {
-  //   display: block;
-  // }
-
-  &::after {
-    content: '';
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
-    background-image: linear-gradient(
-                        to right,
-                        $entity-highlight-contrast,
-                        $entity-highlight-contrast 20%,
-                        $entity-border-color);
   }
 }
 

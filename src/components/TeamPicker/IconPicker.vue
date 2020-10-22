@@ -63,7 +63,7 @@ export default {
 .iconList {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -3px;
+  margin: 0 7px;
 }
 
 .iconBtn{

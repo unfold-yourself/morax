@@ -89,38 +89,19 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -2px;
-  padding-top: 8px;
+  padding-top: 4px;
 }
 
 .option {
   margin: 2px;
-  padding: 4px;
+  padding: 2px;
   border-radius: 999px;
   display: flex;
   align-items: center;
-  background-color: $entity-border-color;
+  background-color: $entity-highlight-contrast;
   padding-right: 8px;
   position: relative;
   overflow: hidden;
-
-  &:hover
-  {
-    cursor: pointer;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
-    background-image: linear-gradient(
-                        to right,
-                        $entity-highlight-contrast,
-                        $entity-highlight-contrast 20%,
-                        $entity-border-color);
-  }
 }
 
 .imageIcon {

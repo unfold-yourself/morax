@@ -5,10 +5,16 @@
         <div class="branding">
           Website.com
         </div>
-        <div class="regionPicker">
+        <div class="serverTime">
+          <div class="serverTimeLabel">{{ clockLabel }}</div>
+          <div class="serverTimeClock">
+            {{ formattedTime }}
+          </div>
+        </div>
+        <div class="serverPicker">
           <div class="label">Server:</div>
-          <select v-model="region" class="select">
-            <option v-for="option in regionOptions"
+          <select v-model="serverId" class="select">
+            <option v-for="option in serverOptions"
                     :key="option.id"
                     :value="option.id"
                     class="option">
@@ -23,50 +29,65 @@
 
 <script>
 import { LocalStorage } from '@/scripts/LocalStorage';
+import { TimeHandler } from '@/scripts/TimeHandler';
 
 export default {
   name: 'Header',
   data: function() {
     return {
-      regionOptions: [
+      serverOptions: [
         {
           id: 'NA',
           displayName: 'America',
-          timezone: 'Australia/Brisbane',
         },
         {
           id: 'EU',
           displayName: 'Europe',
-          timezone: 'Africa/Asmara',
         },
         {
           id: 'AS',
           displayName: 'Asia',
-          timezone: 'Asia/Dubai',
-        },
-        {
-          id: 'NEA',
-          displayName: 'TW/HK/MO',
-          timezone: 'Asia/Muscat',
         },
       ],
-      region: 'NA',
+      serverId: 'NA',
+      datetime: TimeHandler.defaultTime,
+      clockLabel: 'Server reset in:',
     }
+  },
+  computed: {
+    formattedTime: function() {
+      return TimeHandler.fprint(this.datetime, 'HH:mm:ss');
+    },
+  },
+  methods: {
+    updateDateTime: function() {
+      this.datetime = TimeHandler.getTimeToNextReset(this.serverId);
+
+      this.$options.timer = window.setTimeout(this.updateDateTime, 1000);
+    },
   },
   watch: {
-    region: function() {
-      let selectedTimezone = this.regionOptions.find(el => el.id === this.region).timezone;
-      this.$emit('change-server', selectedTimezone);
+    serverId: function() {
+      this.$emit('change-server', this.serverId);
 
       // Push data to browser localStorage
-      LocalStorage.serializedSet('selectedTimezone', selectedTimezone);
+      LocalStorage.serializedSet('selectedServer', this.serverId);
+
+      // update the timer with the new timezone
+      this.$options.timer = window.setTimeout(this.updateDateTime, 1000);
     }
   },
-  // Check browser localStorage to see if there is data saved from a previous instance
   mounted: function() {
-    let selectedTimezone = LocalStorage.serializedGet('selectedTimezone') || 'Australia/Brisbane';
-    this.region = this.regionOptions.find(el => el.timezone === selectedTimezone).id;
+    // Check browser localStorage to see if there is data saved from a previous instance
+    this.serverId = LocalStorage.serializedGet('selectedServer') || 'NA';
+    this.$emit('change-server', this.serverId);
+
+    // Start up the timer for the clock
+    this.$options.timer = window.setTimeout(this.updateDateTime, 1000);
   },
+  beforeDestroy: function() {
+    window.clearTimeout(this.$options.timer);
+  }
 }
 </script>
 
@@ -81,6 +102,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .branding {
@@ -88,7 +110,25 @@ export default {
   color: #fff;
 }
 
-.regionPicker {
+.serverTime {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -51%);
+}
+
+.serverTimeLabel {
+  @include Text--tiny;
+}
+
+.serverTimeClock {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: $font-family-secondary;
+}
+
+.serverPicker {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
