@@ -1,13 +1,17 @@
-import { swords } from '@/assets/data/weapons/swords';
 import { bows } from '@/assets/data/weapons/bows';
-import { polearms } from '@/assets/data/weapons/polearms';
+import { catalysts } from '@/assets/data/weapons/catalysts';
 import { claymores } from '@/assets/data/weapons/claymores';
+import { polearms } from '@/assets/data/weapons/polearms';
+import { swords } from '@/assets/data/weapons/swords';
+
+
 
 const weapons = [
-  ...swords,
   ...bows,
-  ...polearms,
+  ...catalysts,
   ...claymores,
+  ...polearms,
+  ...swords,
 ];
 
 export {
