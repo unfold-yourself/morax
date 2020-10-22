@@ -13,8 +13,8 @@
       <button v-for="option in dayOptions"
               :key="option.index"
               @click="changeDay(option.index)"
-              :class="selectedDay === option.index ? 'button is-selected' : 'button'">
-        {{ option.name }}
+              :class="['button', selectedDay === option.index ? 'is-selected' : '', option.index === todayIdx ? 'is-today' : '']">
+        {{ option.index === todayIdx ? 'Today' : option.name }}
       </button>
     </div>
     <div class="mobileContent">
@@ -31,11 +31,13 @@
 
 <script>
 import { dayOfWeekInfo } from '@/assets/data/utils/days.js';
+import { TimeHandler } from '@/scripts/TimeHandler';
 
 export default {
   name: 'DayPicker',
   props: {
-    '_day': Symbol
+    '_day': Symbol,
+    'serverId': String,
   },
   data: function () {
     return {
@@ -44,6 +46,7 @@ export default {
         index: idx,
       })),
       daySelect: dayOfWeekInfo.findIndex(day => day.symbol === this._day),
+      todayIdx: parseInt(TimeHandler.getServerDay(this.serverId)),
     }
   },
   computed: {
@@ -148,6 +151,11 @@ export default {
   &:active,
   &:focus {
     border-bottom: 4px solid $entity-highlight-color;
+  }
+
+  &.is-today {
+    font-weight: 700;
+    background-color: #eee;
   }
 }
 </style>

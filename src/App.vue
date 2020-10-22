@@ -3,7 +3,7 @@
     <Header @change-server="changeServer" />
     <TeamPicker @update-selected-characters="updateSelectedCharacters"
                 @update-selected-weapons="updateSelectedWeapons" />
-    <DayPicker @change-day="updateDay" :_day="day"/>
+    <DayPicker @change-day="updateDay" :_day="day" :serverId="serverId" />
     <ActivitySuggester :_day="day"
                        :selectedCharacters="selectedCharacters"
                        :selectedWeapons="selectedWeapons" />

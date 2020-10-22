@@ -51,7 +51,7 @@ export default {
       ],
       serverId: 'NA',
       datetime: TimeHandler.defaultTime,
-      clockLabel: 'Server reset in:',
+      clockLabel: 'Daily reset in:',
     }
   },
   computed: {
