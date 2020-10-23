@@ -3,7 +3,11 @@
     <div class="container">
       <div class="content">
         <div class="branding">
-          Website.com
+          <img class="logo" src="~@/assets/images/geoculus.png" alt="logo" />
+          <span class="brandName">
+            <span class="brandName1">Project:</span>
+            <span class="brandName2">morax</span>
+          </span>
         </div>
         <div class="serverTime">
           <div class="serverTimeLabel">{{ clockLabel }}</div>
@@ -106,8 +110,39 @@ export default {
 }
 
 .branding {
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.brandName {
   color: #fff;
+  display: flex;
+  align-items: flex-end;
+
+  @include bplte(xs)
+  {
+    display: none;
+  }
+
+  &1 {
+    font-size: 14px;
+    line-height: 18px;
+    margin-right: 4px;
+  }
+
+  &2 {
+    font-size: 24px;
+    line-height: 24px;
+    font-family: $font-family-secondary;
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
 
 .serverTime {
