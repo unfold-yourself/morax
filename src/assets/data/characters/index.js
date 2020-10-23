@@ -8,6 +8,7 @@ import { fischl } from './Fischl.js';
 import { jean } from './Jean.js';
 import { kaeya } from './Kaeya.js';
 import { keqing } from './Keqing.js';
+import { klee } from './Klee.js';
 import { lisa } from './Lisa.js';
 import { mona } from './Mona.js';
 import { ningguang } from './Ningguang.js';
@@ -30,6 +31,7 @@ const characters = [
   jean,
   kaeya,
   keqing,
+  klee,
   lisa,
   mona,
   ningguang,
