@@ -26,13 +26,17 @@
 <script>
 const links = [
   {
+    'text': 'Github',
+    'href': 'https://github.com/unfold-yourself/morax',
+  },
+  {
     'text': 'Contact',
-    'href': 'mailto:testEmail@gmail.com',
+    'href': 'mailto:projectmorax@gmail.com',
   },
   {
     'text': 'Report a bug',
-    'href': 'mailto:testEmail@gmail.com',
-  }
+    'href': 'https://github.com/unfold-yourself/morax/issues',
+  },
 ];
 
 export default {
