@@ -52,6 +52,7 @@ export default {
 <style lang="scss" scoped>
 .activitySuggester {
   background-color: $base-bg-color;
+  background-image: linear-gradient(to bottom, $base-bg-light, $base-bg-color);
 }
 
 .content {

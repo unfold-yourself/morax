@@ -123,8 +123,8 @@ export default {
 }
 
 .serverTimeClock {
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 28px;
+  line-height: 28px;
   font-family: $font-family-secondary;
 }
 

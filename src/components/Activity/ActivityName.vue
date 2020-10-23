@@ -45,7 +45,7 @@ export default {
 
 .subtitle {
   @include Text--small;
+  letter-spacing: 0.2px;
   font-family: $font-family-secondary;
-  padding-left: 4px;
 }
 </style>

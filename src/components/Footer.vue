@@ -51,7 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .Footer {
-  background-color: #666;
+  background-color: $base-bg-color;
 }
 
 .content {

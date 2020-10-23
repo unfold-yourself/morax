@@ -8,6 +8,7 @@
               class="activeDay"
               :ref="selectedDay === option.index ? 'js-activeDay' : null">
           {{ option.name }}
+          <span v-if="option.index === todayIdx" class="todayLabel">( it's today )</span>
         </div>
       </div>
       <button v-for="option in dayOptions"
@@ -114,7 +115,7 @@ export default {
 }
 
 .activeBackground {
-  background-color: $base-bg-color;
+  background-color: $base-bg-light;
   position: absolute;
   top: 0;
   left: 0;
@@ -139,6 +140,7 @@ export default {
   font-weight: 700;
   color: #fff;
   cursor: default;
+  position: relative;
 }
 
 .button {
@@ -157,5 +159,15 @@ export default {
     font-weight: 700;
     background-color: #eee;
   }
+}
+
+.todayLabel {
+  font-size: 8px;
+  color: #fff;
+  font-weight: 400;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
