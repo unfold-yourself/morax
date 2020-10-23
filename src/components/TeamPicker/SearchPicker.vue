@@ -102,6 +102,11 @@ export default {
   padding-right: 8px;
   position: relative;
   overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $entity-highlight-hover;
+  }
 }
 
 .imageIcon {

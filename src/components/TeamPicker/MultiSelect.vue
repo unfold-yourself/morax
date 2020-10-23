@@ -178,7 +178,7 @@ export default {
   }
 
   &.is-focused {
-    background-color: $entity-lighter-bg;
+    background-color: $entity-hover-bg;
   }
 }
 </style>

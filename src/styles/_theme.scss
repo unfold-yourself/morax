@@ -11,9 +11,11 @@ $card-divider-color: #444;
 
 $entity-border-color: #444;
 $entity-default-bg: #888;
-$entity-lighter-bg: #ccc;
+$entity-hover-bg: #ccc;
+$entity-lighter-bg: rgb(241, 247, 255);
 $entity-highlight-color: rgb(0, 195, 221);
 $entity-highlight-contrast: rgb(0, 134, 158);
+$entity-highlight-hover: rgb(0, 114, 138);
 
 $font-family-primary: 'Open Sans', Helvetica, sans-serif;
 $font-family-secondary: 'Montserrat', Helvetica, sans-serif;

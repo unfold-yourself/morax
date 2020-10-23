@@ -80,7 +80,7 @@ export default {
   &:focus,
   &:active {
     cursor: pointer;
-    background-color: $entity-lighter-bg;
+    background-color: $entity-hover-bg;
   }
 
   &.is-selected {
